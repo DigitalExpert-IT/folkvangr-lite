@@ -1,0 +1,424 @@
+{
+  "genesis": {
+    "getYourGenesis": "Get your NFT genesis",
+    "getYourGenesisSubs": "For every NFT you buy on the NFTGenesis, you automatically receive a generous 2% share of the marketing revenues generated from subsequent NFT Farm sales. That's right, simply by being an NFTShare investor, you become an active contributor to the growth and promotion of the entire NFT marketplace.",
+    "youDontOwn": "You don't own any NFT Genesis",
+    "successMessage": "Success! Thank you for your purchase"
+  },
+  "register": {
+    "title": "Join Us",
+    "subtitle": "No 1 <strong>Decentralized</strong> Web3 Network Marketing Platform"
+  },
+  "home": {
+    "roadmapSection": "Roadmap",
+    "teamSection": "Our team members",
+    "teamSectionV2": {
+      "title": "Our Team Member",
+      "subTitle": "TEAM"
+    },
+    "partnershipSection": "Partnerships",
+    "rankNetwork": "Falcon defi network plan",
+    "maticPlan": "Matic plan",
+    "bnbPlan": "BNB Plan",
+    "bonus": "Bonus",
+    "falconDefiNftSystem": "<strong>Bullrun</strong> NFT System",
+    "tokenomics": "Tokenomics",
+    "quotes": "We will always do the right thing and work together to succeed. By constantly improving ourselves, we aim to achieve even greater things as a community",
+    "roadmap": [
+      {
+        "name": "Q4 2022",
+        "headline": "Oct - Dec 2022",
+        "description": [
+          {
+            "title": "Team formation"
+          },
+          {
+            "title": "Website development"
+          },
+          {
+            "title": "Dapps global network marketing development"
+          },
+          {
+            "title": "Issue GNET token"
+          },
+          {
+            "title": "GNET token swap"
+          }
+        ],
+        "shades": "teal"
+      },
+      {
+        "name": "Q1 2023",
+        "headline": "Jan - Mar 2023",
+        "description": [
+          {
+            "title": "Contract deployed"
+          },
+          {
+            "title": "Global network start"
+          },
+          {
+            "title": "Gnet token swap start"
+          },
+          {
+            "title": "Community building"
+          },
+          {
+            "title": "Genesis NFT launch"
+          },
+          {
+            "title": "Telegram special registered address"
+          }
+        ],
+        "shades": "pink"
+      },
+      {
+        "name": "Q2 2023",
+        "headline": "Apr - Jun 2023",
+        "description": [
+          {
+            "title": "Enlarge community"
+          },
+          {
+            "title": "Share to earn start"
+          },
+          {
+            "title": "Promotional boost"
+          },
+          {
+            "title": "Network NFT market development"
+          }
+        ],
+        "shades": "green"
+      },
+      {
+        "name": "Q3 2023",
+        "headline": "Jul - Sep 2023",
+        "description": [
+          {
+            "title": "New partnership"
+          },
+          {
+            "title": "New NFT product"
+          },
+          {
+            "title": "Royalty property program development"
+          }
+        ],
+        "shades": "blue.400"
+      },
+      {
+        "name": "Q4 2023",
+        "headline": "Oct - Dec 2023",
+        "description": [
+          {
+            "title": "Decentralized product NFT development"
+          },
+          {
+            "title": "New NFT product"
+          },
+          {
+            "title": "Product offering"
+          },
+          {
+            "title": "Venture capital program"
+          }
+        ],
+        "shades": "orange"
+      },
+      {
+        "name": "2024",
+        "headline": "Oct - Dec 2023",
+        "description": [
+          {
+            "title": "Private sale new token project launch"
+          },
+          {
+            "title": "Venture capital start"
+          },
+          {
+            "title": "New metaverse product"
+          },
+          {
+            "title": "New event community"
+          }
+        ]
+      }
+    ],
+    "roadmapV2": [
+      {
+        "name": "2022",
+        "headline": "Oct - Dec 2022",
+        "description": [
+          {
+            "title": "Team formation"
+          },
+          {
+            "title": "Website development"
+          },
+          {
+            "title": "Dapps global network marketing development"
+          },
+          {
+            "title": "Issue GNET token"
+          },
+          {
+            "title": "GNET token swap"
+          }
+        ]
+      },
+      {
+        "name": "Q1 2023",
+        "headline": "Jan - Mar 2023",
+        "description": [
+          {
+            "title": "Contract deployed"
+          },
+          {
+            "title": "Global network start"
+          },
+          {
+            "title": "Gnet token swap start"
+          },
+          {
+            "title": "Community building"
+          },
+          {
+            "title": "Genesis NFT launch"
+          },
+          {
+            "title": "Telegram special registered address"
+          }
+        ]
+      },
+      {
+        "name": "Q2 2023",
+        "headline": "Apr - Jun 2023",
+        "description": [
+          {
+            "title": "Enlarge community"
+          },
+          {
+            "title": "Share to earn start"
+          },
+          {
+            "title": "Promotional boost"
+          },
+          {
+            "title": "Network NFT market development"
+          }
+        ]
+      },
+      {
+        "name": "Q3 2023",
+        "headline": "Jul - Sep 2023",
+        "description": [
+          {
+            "title": "New partnership"
+          },
+          {
+            "title": "New NFT product"
+          },
+          {
+            "title": "Royalty property program development"
+          }
+        ]
+      },
+      {
+        "name": "Q4 2023",
+        "headline": "Oct - Dec 2023",
+        "description": [
+          {
+            "title": "Decentralized product NFT development"
+          },
+          {
+            "title": "New NFT product"
+          },
+          {
+            "title": "Product offering"
+          },
+          {
+            "title": "Venture capital program"
+          }
+        ]
+      },
+      {
+        "name": "2024",
+        "headline": "Oct - Dec 2023",
+        "description": [
+          {
+            "title": "Private sale new token project launch"
+          },
+          {
+            "title": "Venture capital start"
+          },
+          {
+            "title": "New metaverse product"
+          },
+          {
+            "title": "New event community"
+          }
+        ]
+      }
+    ],
+    "header": {
+      "title": "WANG CAPITAL HONGKONG",
+      "subtitle": "<strong>Decentralized Web3</strong><br/> Investment Corporation"
+    },
+    "feature": {
+      "title": "FEATURES",
+      "subtitle": "Innovative Web3 platform that blends network marketing principles with lucrative NFT farming opportunities, presenting a revolutionary way for users to invest in tokens and coins with high potential for appreciation. We are dedicated to delivering extraordinary returns to our users by allocating a portion of the funds we manage to invest in promising new tokens and coins."
+    },
+    "sectionFeature": {
+      "fullTransparency": {
+        "title": "Innovative NFT Farming",
+        "subtitle": "Users can participate in our NFT farming program, where a portion of the funds raised from these activities is used to purchase and invest in new tokens and coins."
+      },
+      "fullAutomation": {
+        "title": "Astute Investments",
+        "subtitle": "Focusing on selecting tokens that not only have the potential for rapid value growth but are also solidly founded in technological and business principles, we ensure your investments are managed wisely."
+      },
+      "smartContract": {
+        "title": "Multiplied Profits",
+        "subtitle": "FalconDefi aims to maximize user returns through a combination of short-term gains from NFT farming and long-term value growth of the selected tokens."
+      },
+      "decentralized": {
+        "title": "Full Transparency",
+        "subtitle": "The transparency of blockchain technology allows every transaction to be publicly accessible, ensuring all activities are visible and verifiable at any time."
+      }
+    },
+    "matchingBonusv2": {
+      "title": "World <br/> Community",
+      "description": "The Falcon Defi Network boasts a global community of members. We welcome you to join our vibrant community and engage in team-building on the Falcon Defi Network. Come be a part of the expanding Falcon Defi Network community!"
+    },
+    "populationSection": {
+      "title": "<strong>Falcon Defi</strong> Network Marketing",
+      "content": "Falcon Defi network marketing leverages Web3 and blockchain technology, offering complete transparency where all transactions within the network are publicly viewable, ensuring trust and integrity in every interaction."
+    },
+    "project": {
+      "title": "Project",
+      "description": "All applications and utilities will be built on a decentralized network platform"
+    }
+  },
+  "nftFarming": {
+    "gnetProject": "<strong>Global Network</strong> Project",
+    "networkMembers": "Network member",
+    "globalBonusGnet": "Global bonus gnet",
+    "rankReward": "Rank reward gnet",
+    "farmingMatching": "Farming matching bonus",
+    "farmMathcingRequirement": "NFT farm matching requirement",
+    "globalnftbonus": "Global Rank NFT Bonus System",
+    "potentialProfit": "Potential Profit",
+    "potentialProfitSub": "In {{currency}} will be {{amount}} {{currency}} "
+  },
+  "share": {
+    "title": "SHARE TO EARN",
+    "placeholder": "Paste your {{media}} post link here",
+    "subtitle": "Requirement",
+    "subDescription": "Share2earn is an app that let you discover the latest property development and share with your friends and family. Earn extra income and points to redeem amazing gifts.",
+    "item": {
+      "instagram": {
+        "titleDescription": "Share content to instagram to earn token's",
+        "subtitle": "Requirement",
+        "subtitleDescription": "Share2earn is an app that let you discover the latest property development and share with your friends and family. Earn extra income and points to redeem amazing gifts."
+      },
+      "twitter": {
+        "titleDescription": "Share content to twitter to earn token's",
+        "subtitle": "Requirement",
+        "subtitleDescription": "Share2earn is an app that let you discover the latest property development and share with your friends and family. Earn extra income and points to redeem amazing gifts."
+      },
+      "tiktok": {
+        "titleDescription": "Share content to tiktok to earn token's",
+        "subtitle": "Requirement",
+        "subtitleDescription": "Share2earn is an app that let you discover the latest property development and share with your friends and family. Earn extra income and points to redeem amazing gifts."
+      },
+      "facebook": {
+        "titleDescription": "Share content to facebook to earn token's",
+        "subtitle": "Requirement",
+        "subtitleDescription": "Share2earn is an app that let you discover the latest property development and share with your friends and family. Earn extra income and points to redeem amazing gifts."
+      }
+    }
+  },
+  "admin": {
+    "title": {
+      "globalPool": "Global Omzet Pool"
+    },
+    "label": {
+      "startRankReward": "Start Rank Reward",
+      "stopRankReward": "Stop Rank Reward"
+    }
+  },
+  "dashboard": {
+    "title": {
+      "members": "Members",
+      "downlinesNotFound": "Downlines Not Found",
+      "users": "Users",
+      "summary": "Summary",
+      "nft": "NFT",
+      "system": "system",
+      "nftType": "NFT Farm {{type}}"
+    },
+    "tableField": {
+      "potentialProfit": "Potential Profit",
+      "maximumProfit": "Maximum Profit",
+      "claimableNFT": "Claimable NFT",
+      "claimedNFT": "Claimed NFT",
+      "totalNFT": "Total NFT",
+      "rank": "Rank",
+      "member": "Member",
+      "lv": "Lv",
+      "totalMember": "Total Member",
+      "sumPotentialProfit": "Sum Potential Profit",
+      "nft": "NFT",
+      "gachaAvg": "Gacha Avg",
+      "price": "Price",
+      "amount": "Amount",
+      "user": "User"
+    },
+    "placeholder": {
+      "search": "Search member by address"
+    },
+    "alert": {
+      "downlinesNotFound": "{{address}} doesn't have any downlines or already reach max level."
+    },
+    "labels": {
+      "totalSales": "Total Sales",
+      "totalUser": "Total User",
+      "totalProfit": "Total Profit",
+      "NFTOnUsers": "NFT On Users",
+      "claimedNFT": "Claimed NFT",
+      "totalProfitValue": "Total Profit Value",
+      "activeNFT": "Active NFT",
+      "blacklistNFT": "Blacklist NFT",
+      "totalMember": "Total Member",
+      "totalEstimateProfit": "Total Estimate Profit",
+      "maxTotalLevel": "Max Total Level",
+      "totalNft": "Total NFT"
+    },
+    "errors": {
+      "invalidDate": "Invalid Date"
+    },
+    "billboard": "The Global Network aims to revolutionize the network marketing industry by decentralizing millions of users to web3 applications",
+    "revenue": "Revenue"
+  },
+  "shareToEarn": {
+    "title": "Share To Earn",
+    "share": "Share"
+  },
+  "profile": {
+    "account": "ACCOUNT",
+    "header": "MY ACCOUNT",
+    "myFarms": "My Farms",
+    "myNFT": "my nft",
+    "networkStatus": {
+      "label": "Network Status",
+      "TotalNetworkMember": "Total Network <br/>Member",
+      "Total15LevelReferral": "Total 15 <br/>Level Referral",
+      "PersonalBuy": "Personal Buy",
+      "Total100LevelReferral": "Total 100 <br/>Level Referral"
+    },
+    "level": "LEVEL",
+    "totalUser": "Total User",
+    "totalBuy": "Total Buy"
+  }
+}
