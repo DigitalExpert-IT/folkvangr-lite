@@ -38,7 +38,7 @@ const numericStyles = defineStyle({
   },
 });
 
-const variantSimple = definePartsStyle(props => {
+const variantSimple = definePartsStyle((props) => {
   const { colorScheme: c } = props;
 
   return {
@@ -66,7 +66,7 @@ const variantSimple = definePartsStyle(props => {
   };
 });
 
-const variantStripe = definePartsStyle(props => {
+const variantStripe = definePartsStyle((props) => {
   const { colorScheme: c } = props;
 
   return {
@@ -107,7 +107,7 @@ const variantStripe = definePartsStyle(props => {
   };
 });
 
-const variantValhalla = definePartsStyle(props => {
+const variantValhalla = definePartsStyle((props) => {
   const { colorScheme: c } = props;
 
   return {
@@ -164,7 +164,7 @@ const variantValhalla = definePartsStyle(props => {
   };
 });
 
-const variantValhallaV2 = definePartsStyle(props => {
+const variantValhallaV2 = definePartsStyle((props) => {
   return {
     table: {
       borderCollapse: "separate",
@@ -174,14 +174,14 @@ const variantValhallaV2 = definePartsStyle(props => {
       color: mode("gray.600", "gray.300")(props),
       border: "1px",
       textAlign: "center",
-      bgColor: "#F16623",
+      bgColor: "#0A1022",
       borderColor: "#0A1022",
       ...numericStyles,
     },
     td: {
       border: "1px",
-      bgColor: "#1E1E1E",
-      borderColor: "#1E1E1E",
+      bgColor: "#0A1022",
+      borderColor: "#0A1022",
       ...numericStyles,
     },
     caption: {
@@ -197,7 +197,7 @@ const variantValhallaV2 = definePartsStyle(props => {
   };
 });
 
-const variantGradient = definePartsStyle(props => {
+const variantGradient = definePartsStyle((props) => {
   const { colorScheme: c } = props;
   const [c1, c2 = "pink"] = c.split(/\:/);
 
@@ -252,7 +252,7 @@ const variantGradient = definePartsStyle(props => {
   };
 });
 
-const variantBasic = definePartsStyle(props => {
+const variantBasic = definePartsStyle((props) => {
   const { colorScheme: c } = props;
 
   return {
@@ -333,7 +333,7 @@ const variantBasic = definePartsStyle(props => {
   };
 });
 
-const variantDashboard = definePartsStyle(props => {
+const variantDashboard = definePartsStyle((props) => {
   return {
     table: {
       bg: "#f6f7ff",

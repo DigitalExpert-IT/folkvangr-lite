@@ -19,12 +19,12 @@ export interface ISocial {
 
 export const NAVIGATION: Array<INavigation> = [
   {
-    name: "home",
-    href: "/",
-  },
-  {
     name: "profile",
     href: "/profile",
+  },
+  {
+    name: "swap",
+    href: "/swap",
   },
 ];
 

@@ -59,7 +59,7 @@ export const SectionNFTList = () => {
           {data.map((e, idx) => (
             <WrapItem w={{ md: "25%", sm: "45%", base: "100%" }} key={idx}>
               <CardListNFT
-                title={`bullcuan ${e.id.add(1)}`}
+                title={`WANGNFT ${e.id.add(1)}`}
                 price={prettyBn(e.price, 18)}
                 id={Number(e.id)}
               />

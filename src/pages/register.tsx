@@ -14,14 +14,14 @@ const Registerv2 = () => {
   return (
     <LayoutMain>
       <Image
-        src="https://ik.imagekit.io/msxxxaegj/BullrunPass/head-pattern.png?updatedAt=1715787786437"
+        src="/images/bg-failconnect.png"
         alt="bg-register"
         pos="absolute"
         zIndex="0"
         w="100vw"
         h="100vh"
       />
-      <Stack bgGradient="linear-gradient(180deg, #1E1E1E 40%, #FBA77E 100%)">
+      <Stack bgGradient="linear-gradient(180deg, #0E222F 0%, #0A1525 100%)">
         <Stack alignItems={"center"} minH={"100vh"} gap={"8"} pb={"10"}>
           <Box
             as="header"
@@ -78,7 +78,7 @@ const Registerv2 = () => {
                 zIndex={"1"}
               >
                 <Box
-                  bgGradient="linear-gradient(90deg, #F16623 0%, #FBA77E 100%)"
+                  bgGradient="linear-gradient(90deg, #1C79CC 0%, #04DFA7 100%)"
                   py={"20"}
                   zIndex={"99"}
                   backgroundPosition={"center"}

@@ -5,6 +5,15 @@ export interface IRankSystem {
   percent: string;
 }
 
+export interface IRankNetwork {
+  rank: string;
+  level: string;
+  sponsor: string;
+  matching: string;
+  turnover: string;
+  personalBuy: string;
+}
+
 export const RANKSYSTEM: Array<IRankSystem> = [
   {
     share: "Referral",
@@ -25,6 +34,57 @@ export const RANKSYSTEM: Array<IRankSystem> = [
   {
     share: "Swap to XRP Liquidity",
     percent: "15%",
+  },
+];
+
+export const RANKNETWORK: Array<IRankNetwork> = [
+  {
+    rank: "Classic",
+    level: "Level 1",
+    sponsor: "5%",
+    matching: "20%",
+    turnover: "",
+    personalBuy: "20",
+  },
+  {
+    rank: "Silver",
+    level: "Level 2",
+    sponsor: "3%",
+    matching: "10%",
+    turnover: "500",
+    personalBuy: "100",
+  },
+  {
+    rank: "Gold",
+    level: "Level 3",
+    sponsor: "2%",
+    matching: "10%",
+    turnover: "2000",
+    personalBuy: "100",
+  },
+  {
+    rank: "Platinum",
+    level: "Level 4",
+    sponsor: "",
+    matching: "10%",
+    turnover: "8000",
+    personalBuy: "100",
+  },
+  {
+    rank: "Diamond",
+    level: "Level 5",
+    sponsor: "",
+    matching: "10%",
+    turnover: "15000",
+    personalBuy: "500",
+  },
+  {
+    rank: "Priority",
+    level: "Level 6",
+    sponsor: "",
+    matching: "10%",
+    turnover: "30000",
+    personalBuy: "500",
   },
 ];
 

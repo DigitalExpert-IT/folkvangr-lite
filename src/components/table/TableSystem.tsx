@@ -12,7 +12,7 @@ const columnHelper = createColumnHelper<IRankSystem>();
 
 const columns = [
   columnHelper.accessor("share", {
-    cell: info => (
+    cell: (info) => (
       <Stack
         direction="row"
         align="center"
@@ -21,7 +21,7 @@ const columns = [
       >
         <Icon
           as={MdOutlineDoubleArrow}
-          color="orange"
+          color="teal.400"
           w={{ base: "3", md: "5" }}
           h={{ base: "3", md: "7" }}
         />
@@ -38,7 +38,7 @@ const columns = [
   }),
 
   columnHelper.accessor("percent", {
-    cell: info => (
+    cell: (info) => (
       <Text
         fontSize="md"
         textTransform="capitalize"
@@ -80,7 +80,7 @@ export const TableSystem = () => {
         textTransform="uppercase"
         fontSize={{ md: "6xl", base: "4xl" }}
       >
-        bullrun nft system
+        Wangcapital nft system
       </Heading>
 
       <TableData
