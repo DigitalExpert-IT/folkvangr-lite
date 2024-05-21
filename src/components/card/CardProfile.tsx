@@ -9,7 +9,7 @@ export const CardProfile = (props: CardProps) => {
       h={"full"}
       placeContent={"center"}
       rounded={"2.5rem"}
-      bg="gray.900"
+      bg="#091E2A"
       {...rest}
     >
       {children}

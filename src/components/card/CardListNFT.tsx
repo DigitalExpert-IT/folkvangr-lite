@@ -61,7 +61,7 @@ export const CardListNFT: React.FC<CardListNFTProps> = (props) => {
                   // onClick={() => handleBuyFLD()}
                   // isLoading={fldLoading}
                 >
-                  Buy with {props.price} FLD
+                  Buy with {props.price} WANG
                 </Button>
               </Stack>
             </Box>

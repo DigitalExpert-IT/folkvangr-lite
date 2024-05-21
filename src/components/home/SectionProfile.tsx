@@ -9,7 +9,7 @@ import {
 
 export const SectionProfile = () => {
   return (
-    <Stack maxW={"container.xxl"} mx={{ base: "4", lg: "auto" }} mt="10rem">
+    <Stack maxW={"container.xl"} mx={{ base: "4", lg: "auto" }} mt="10rem">
       <Heading
         fontWeight="black"
         fontSize={{ base: "3xl", md: "7xl" }}
@@ -29,13 +29,13 @@ export const SectionProfile = () => {
         {t("pages.profile.header")}
       </Heading>
 
-      <Flex
-        direction={{ base: "column", lg: "row" }}
-        gap="10"
-        p="2"
-        px={{ base: "0", md: "3rem", xl: "7rem" }}
-      >
-        <Box flex={0} bg="#F16623" rounded="2.5rem" p="1">
+      <Flex direction={{ base: "column", lg: "row" }} gap="10" p="2">
+        <Box
+          flex={0}
+          bgGradient="linear-gradient(118deg, #1D73CD 4.67%, #02E4A4 97.62%)"
+          rounded="2.5rem"
+          p="1"
+        >
           <Stack
             h="100%"
             w="100%"
@@ -44,13 +44,22 @@ export const SectionProfile = () => {
             justify="space-between"
             background="#091E2A"
           >
+            <Box minW={{ base: "100%", md: "35%" }}>
+              <CardProfileRank />
+            </Box>
             <Box w="100%">
               <CardProfileAddress />
             </Box>
           </Stack>
         </Box>
 
-        <Stack bg="#F16623" rounded="2.5rem" w="100%" flex={2} p="1">
+        <Stack
+          bgGradient="linear-gradient(118deg, #1D73CD 4.67%, #02E4A4 97.62%)"
+          rounded="2.5rem"
+          w="100%"
+          flex={2}
+          p="1"
+        >
           <CardProfileBalance />
         </Stack>
       </Flex>

@@ -22,6 +22,10 @@ export const NAVIGATION: Array<INavigation> = [
     name: "home",
     href: "/",
   },
+  {
+    name: "profile",
+    href: "/profile",
+  },
 ];
 
 export const SOCIAL: Array<ISocial> = [

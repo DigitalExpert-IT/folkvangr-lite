@@ -1,14 +1,8 @@
-import { prettyBn } from "utils";
 import { BigNumber } from "ethers";
 import { useState, useEffect } from "react";
 import { useAddress, useContractWrite } from "@thirdweb-dev/react";
 import { Bullcuan } from "pass-bullrun/typechain-types";
-import {
-  useUSDTContract,
-  useNFTBullRunContract,
-  useBullRunContract,
-  useAccountMap,
-} from "hooks";
+import { useUSDTContract, useNFTBullRunContract, useAccountMap } from "hooks";
 
 type BaseCardType = Awaited<ReturnType<Bullcuan["listPreMinted"]>>;
 type NFTType = BaseCardType & {

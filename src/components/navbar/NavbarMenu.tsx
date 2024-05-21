@@ -1,5 +1,5 @@
 import React from "react";
-// import Link from "next/link";
+import Link from "next/link";
 import { INavigation } from "constant/navigation";
 import { useTranslation } from "react-i18next";
 import { ChevronRightIcon } from "@chakra-ui/icons";
@@ -12,7 +12,6 @@ import {
   Stack,
   Flex,
   Icon,
-  Link,
 } from "@chakra-ui/react";
 import { useConnectionStatus } from "@thirdweb-dev/react";
 
@@ -35,7 +34,7 @@ export const NavbarMenu: React.FC<NavItemProps> = (props) => {
           <Box key={idx}>
             <Popover trigger="hover" placement="bottom-start">
               <PopoverTrigger>
-                <Link href={item.href} key={idx}>
+                <Link href={`${item.href}`} key={idx}>
                   <Text textTransform="uppercase" fontWeight="400">
                     {t(`common.navigation.${item.name}`)}
                   </Text>

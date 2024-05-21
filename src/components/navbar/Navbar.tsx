@@ -92,7 +92,7 @@ export const Navbar = () => {
               onClick={onOpen}
             />
           </Stack>
-          {/* <Stack
+          <Stack
             direction="row"
             spacing="5"
             display={{ base: "none", md: "none", lg: "flex" }}
@@ -101,7 +101,7 @@ export const Navbar = () => {
             flex={1}
           >
             <NavbarMenu data={NAVIGATION} />
-          </Stack> */}
+          </Stack>
           <Flex
             alignItems="center"
             gap={2}

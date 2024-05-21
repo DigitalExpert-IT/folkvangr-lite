@@ -1,7 +1,6 @@
 import { HStack, Image, Stack, Text } from "@chakra-ui/react";
 import { useAddress, useBalance } from "@thirdweb-dev/react";
 import { ZERO_ADDRESS } from "constant/address";
-// import { WidgetProfileBalace } from "components/Widget/WidgetProfile";
 import { Trans } from "react-i18next";
 import { prettyBn } from "utils";
 import { useEffect, useState } from "react";
@@ -35,7 +34,7 @@ export const CardProfileBalance = () => {
 
   return (
     <Stack
-      bg="gray.900"
+      bg="#091E2A"
       rounded="2.5rem"
       p={{ base: "5", lg: "10" }}
       height="full"
@@ -45,6 +44,17 @@ export const CardProfileBalance = () => {
         <Trans i18nKey="common.balance" />
       </Text>
       <Stack gap={"2"} w={"full"}>
+        <WidgetProfileBalance
+          bg="transparent"
+          border="1px solid white"
+          px="1rem"
+          rounded="xl"
+        >
+          <Image src="/assets/logo/folkvangr-mini.png" alt="Logo FLD" w={10} />
+          <HStack w={"full"} justifyContent={{ base: "end", xs: "center" }}>
+            <Text>1000 WANG</Text>
+          </HStack>
+        </WidgetProfileBalance>
         <WidgetProfileBalance
           bg="transparent"
           border="1px solid white"

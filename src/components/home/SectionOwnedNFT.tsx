@@ -31,7 +31,7 @@ export const SectionOwnedNFT = () => {
       <Container maxW={"container.xxl"} w={{ base: "100%", md: "90%" }}>
         <Stack align="center" justify="center" py="10">
           <Wrap
-            bg="#1E1E1E"
+            bg="rgba(11, 84, 84, 0.75)"
             w="100%"
             align="center"
             justify="center"

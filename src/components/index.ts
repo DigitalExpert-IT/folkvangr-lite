@@ -5,4 +5,5 @@ export * from "./navbar";
 export * from "./button";
 export * from "./widget";
 export * from "./table";
+export * from "./home";
 export * from "./DrawerMobileNav";

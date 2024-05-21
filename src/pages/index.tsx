@@ -17,7 +17,7 @@ export default function Home() {
       <SectionFeature />
       <SectionPopulation />
       {/* <SectionOwnedNFT /> */}
-      <TableSystem />
+      {/* <TableSystem /> */}
     </LayoutMain>
   );
 }

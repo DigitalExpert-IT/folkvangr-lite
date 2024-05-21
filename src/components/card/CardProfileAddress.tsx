@@ -6,9 +6,11 @@ import { IoCopyOutline } from "react-icons/io5";
 import { useAddress } from "@thirdweb-dev/react";
 import { BULLRUN_CONTRACT } from "constant/address";
 import { CopiableText } from "components/CopiableText";
-import { CURRENT_CHAIN_ID, useAccountMap } from "hooks";
+import { CURRENT_CHAIN_ID, useAccountMap, useBullRunContract } from "hooks";
 import { WidgetProfileBalance } from "components/widget";
-import { Center, Text, VStack, Heading } from "@chakra-ui/react";
+import { Center, Text, VStack, Heading, Box } from "@chakra-ui/react";
+
+const netContract = BULLRUN_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
 
 export const CardProfileAddress = () => {
   const router = useRouter();
@@ -26,10 +28,40 @@ export const CardProfileAddress = () => {
 
   return (
     <CardProfile placeContent="left" align="left">
+      <Box
+        w="100%"
+        px="2"
+        display="flex"
+        flexDirection="column"
+        textAlign="left"
+      >
+        <Heading size="lg">Team Performance</Heading>
+        <Text fontSize="lg">1000</Text>
+      </Box>
       <VStack gap={"8"} mt="3rem">
         <WidgetProfileBalance w="full" justifyContent="center">
           <Center py={"2"}>
-            <Heading>Address</Heading>
+            <CopiableText
+              alignItems={"left"}
+              textAlign={"left"}
+              gap={2}
+              fontSize={{ base: "2xs", sm: "xs", xl: "sm" }}
+              value={netContract}
+            >
+              <Text
+                as={"span"}
+                display={"flex"}
+                justifyContent={"left"}
+                alignItems={"left"}
+                gap={"2"}
+                fontSize={"lg"}
+              >
+                {/* {t("common.contractFld")} */}
+                Network
+                <IoCopyOutline />
+              </Text>
+              {netContract?.toUpperCase()}
+            </CopiableText>
           </Center>
         </WidgetProfileBalance>
         <WidgetProfileBalance justifyContent={"center"}>
