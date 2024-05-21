@@ -3,9 +3,10 @@ import { TableSystem } from "components/table";
 import {
   SectionHeader,
   SectionNFTList,
-  SectionOwnedNFT,
+  // SectionOwnedNFT,
   // SectionProfile,
   SectionFeature,
+  SectionPopulation,
 } from "components/home";
 
 export default function Home() {
@@ -14,7 +15,8 @@ export default function Home() {
       <SectionHeader />
       <SectionNFTList />
       <SectionFeature />
-      <SectionOwnedNFT />
+      <SectionPopulation />
+      {/* <SectionOwnedNFT /> */}
       <TableSystem />
     </LayoutMain>
   );
