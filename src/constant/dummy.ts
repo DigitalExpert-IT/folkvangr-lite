@@ -118,3 +118,21 @@ export const PROMOTION_IMAGE_DATA = [
     imgCenter: true,
   },
 ];
+
+export const PARTNERSHIP = [
+  {
+    name: "partner1",
+    image:
+      "https://ik.imagekit.io/msxxxaegj/folkvangr/binance-logo.png?updatedAt=1695370706279",
+  },
+  {
+    name: "partner2",
+    image:
+      "https://ik.imagekit.io/msxxxaegj/folkvangr/solidproofV2.png?updatedAt=1695015631926",
+  },
+  {
+    name: "partner3",
+    image:
+      "https://ik.imagekit.io/msxxxaegj/wangcapital/partners.png?updatedAt=1716356329161",
+  },
+];

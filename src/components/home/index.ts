@@ -5,3 +5,4 @@ export * from "./SectionFeature";
 export * from "./SectionOwnedNFT";
 export * from "./SectionCommunity";
 export * from "./SectionPopulation";
+export * from "./SectionPartnership";

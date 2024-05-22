@@ -1,13 +1,15 @@
 import { LayoutMain } from "components";
+import { PARTNERSHIP } from "constant/dummy";
+import { Box, Container } from "@chakra-ui/react";
 import { TableNetworkRank, TableSystem } from "components/table";
 import {
   SectionHeader,
   SectionNFTList,
   SectionFeature,
-  SectionPopulation,
   SectionCommunity,
+  SectionPopulation,
+  SectionPartnership,
 } from "components/home";
-import { Box, Container } from "@chakra-ui/react";
 
 export default function Home() {
   return (
@@ -25,6 +27,7 @@ export default function Home() {
         <TableNetworkRank />
         <TableSystem />
         <SectionCommunity />
+        <SectionPartnership data={PARTNERSHIP} />
       </Box>
     </LayoutMain>
   );
