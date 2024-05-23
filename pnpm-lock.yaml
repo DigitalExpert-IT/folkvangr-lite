@@ -104,6 +104,9 @@ importers:
       evm-bn:
         specifier: ^1.1.2
         version: 1.1.2(@ethersproject/bignumber@5.7.0)
+      falcon-lite:
+        specifier: ^1.0.0
+        version: 1.0.0(@ethersproject/bignumber@5.7.0)(typescript@5.4.5)
       framer-motion:
         specifier: ^7.6.18
         version: 7.10.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -3626,6 +3629,9 @@ packages:
   eyes@0.1.8:
     resolution: {integrity: sha512-GipyPsXO1anza0AOZdy69Im7hGFCNB7Y/NGjDlZGJ3GJJLtwNSb2vrzYrTYJRrRloVx7pl+bhUaTB8yiccPvFQ==}
     engines: {node: '> 0.1.90'}
+
+  falcon-lite@1.0.0:
+    resolution: {integrity: sha512-eEcaQ4F1Kfy1rU2Rt+8IX8s996af/sdp9VgSC6FJONRKT3atpDK/CeRNLX2wQta7f04XNsQ/EyJ2iMs594gw5g==}
 
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
@@ -12050,6 +12056,20 @@ snapshots:
   extend@3.0.2: {}
 
   eyes@0.1.8: {}
+
+  falcon-lite@1.0.0(@ethersproject/bignumber@5.7.0)(typescript@5.4.5):
+    dependencies:
+      '@openzeppelin/contracts': 4.9.6
+      '@openzeppelin/contracts-upgradeable': 4.9.6
+      '@uniswap/v2-periphery': 1.1.0-beta.0
+      dotenv: 16.4.5
+      evm-bn: 1.1.2(@ethersproject/bignumber@5.7.0)
+      jsonexport: 3.2.0
+      semantic-release: 22.0.12(typescript@5.4.5)
+    transitivePeerDependencies:
+      - '@ethersproject/bignumber'
+      - supports-color
+      - typescript
 
   fast-deep-equal@3.1.3: {}
 
