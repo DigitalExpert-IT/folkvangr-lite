@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { CardProfile } from "./CardProfile";
 import { IoCopyOutline } from "react-icons/io5";
 import { useAddress } from "@thirdweb-dev/react";
-import { BULLRUN_CONTRACT } from "constant/address";
+import { WANGCAPITAL_CONTRACT } from "constant/address";
 import { CopiableText } from "components/CopiableText";
-import { CURRENT_CHAIN_ID, useAccountMap, useBullRunContract } from "hooks";
+import { CURRENT_CHAIN_ID, useAccountMap } from "hooks";
 import { WidgetProfileBalance } from "components/widget";
 import { Center, Text, VStack, Heading, Box } from "@chakra-ui/react";
 
-const netContract = BULLRUN_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
+const netContract = WANGCAPITAL_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
 
 export const CardProfileAddress = () => {
   const router = useRouter();

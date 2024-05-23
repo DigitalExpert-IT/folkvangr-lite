@@ -7,7 +7,7 @@ import {
   Stack,
   Heading,
   Link,
-  Image as Gambar,
+  Image as Images,
 } from "@chakra-ui/react";
 
 interface IPartnershipV2 {
@@ -83,7 +83,7 @@ export const SectionPartnership: React.FC<SectionPartnershipV2Props> = (
             <WrapItem key={idx} w={{ base: "5rem", md: "10rem", lg: "15rem" }}>
               {item.link ? (
                 <Link href={item.link} isExternal>
-                  <Gambar
+                  <Images
                     src={item.image}
                     alt={`partner-${item.name}`}
                     w={{ base: "auto", lg: "250px" }}
@@ -91,11 +91,11 @@ export const SectionPartnership: React.FC<SectionPartnershipV2Props> = (
                   />
                 </Link>
               ) : (
-                <Gambar
+                <Images
                   src={item.image}
                   alt={`partner-${item.name}`}
-                  w={{ base: "auto", lg: "250px" }}
-                  h={{ base: "auto", lg: "260px" }}
+                  w={{ base: "100px", lg: "250px" }}
+                  h={{ base: "90px", lg: "260px" }}
                 />
               )}
             </WrapItem>

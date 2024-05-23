@@ -60,7 +60,7 @@ export const SectionNFTList = () => {
             <WrapItem w={{ md: "25%", sm: "45%", base: "100%" }} key={idx}>
               <CardListNFT
                 title={`WANGNFT ${e.id.add(1)}`}
-                price={prettyBn(e.price, 18)}
+                price={prettyBn(e.price, 6)}
                 id={Number(e.id)}
               />
             </WrapItem>

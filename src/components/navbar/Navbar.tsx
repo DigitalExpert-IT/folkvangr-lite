@@ -67,12 +67,11 @@ export const Navbar = () => {
               <AspectRatio
                 w={{ base: 200, lg: 250 }}
                 ratio={16 / 5}
-                my={2}
                 mx={{ sm: "auto" }}
                 pos={{ base: "absolute", lg: "sticky" }}
                 right={"0"}
                 left={"0"}
-                top={"-2"}
+                top={"-2.5"}
               >
                 <Image
                   src="/assets/logo/wang-logo.png"

@@ -68,7 +68,7 @@ export const Footer = () => {
                   sizes="(max-width: 768px) 100vw,"
                   fill
                   loading="lazy"
-                  src={"/assets/logo/folkvangr-logo3.png"}
+                  src={"/assets/logo/wang-logo.png"}
                   alt="logo-image"
                   priority={false}
                 />
@@ -88,7 +88,7 @@ export const Footer = () => {
       </Box>
       <Flex justify={"center"} py={2}>
         <Text fontSize={{ base: "sm", sm: "md" }}>
-          &#169; {new Date().getFullYear()} Falcon Defi, All right reserved
+          &#169; {new Date().getFullYear()} Wang Capital, All right reserved
         </Text>
       </Flex>
     </Box>

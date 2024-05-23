@@ -1,20 +1,19 @@
 import { BigNumber } from "ethers";
 import { useState, useEffect } from "react";
 import { useAddress, useContractWrite } from "@thirdweb-dev/react";
-import { Bullcuan } from "pass-bullrun/typechain-types";
-import { useUSDTContract, useNFTBullRunContract, useAccountMap } from "hooks";
+import { FalconDefi } from "falcon-lite/typechain-types";
+import { useUSDTContract, useNFTWangContract, useAccountMap } from "hooks";
 
-type BaseCardType = Awaited<ReturnType<Bullcuan["listPreMinted"]>>;
+type BaseCardType = Awaited<ReturnType<FalconDefi["getDetailItem"]>>;
 type NFTType = BaseCardType & {
   id: BigNumber;
-  price: BigNumber;
 };
 
 export const useNftList = () => {
   const address = useAddress();
   const usdt = useUSDTContract();
   const account = useAccountMap();
-  const nft = useNFTBullRunContract();
+  const nft = useNFTWangContract();
   const nftBuy = useContractWrite(nft.contract, "buyNft");
   const approveUsdt = useContractWrite(usdt.contract, "approve");
   const [data, setData] = useState<NFTType[]>([]);
@@ -26,10 +25,9 @@ export const useNftList = () => {
     try {
       const nftList = await Promise.all(
         new Array(6).fill(null).map(async (_, cardId) => {
-          const nftItem = await nft.contract!.call("listPreMinted", [cardId]);
+          const nftItem = await nft.contract!.call("getDetailItem", [cardId]);
           return {
             ...nftItem,
-            price: BigNumber.from(nftItem),
             id: BigNumber.from(cardId),
           };
         })

@@ -133,6 +133,6 @@ export const PARTNERSHIP = [
   {
     name: "partner3",
     image:
-      "https://ik.imagekit.io/msxxxaegj/wangcapital/partners.png?updatedAt=1716356329161",
+      "https://ik.imagekit.io/msxxxaegj/wangcapital/Lettermark%20White.png?updatedAt=1716354827007",
   },
 ];

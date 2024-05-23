@@ -1,7 +1,7 @@
 import React from "react";
 // import Link from "next/link";
 import { INavigation } from "constant/navigation";
-// import { ButtonConnectWallet } from "components";
+import { ButtonConnectWallet } from "components";
 import { useTranslation } from "react-i18next";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import Image from "next/image";
@@ -33,7 +33,7 @@ interface MobileDrawerProps {
   data: INavigation[];
 }
 
-export const DrawerMobileNav: React.FC<MobileDrawerProps> = props => {
+export const DrawerMobileNav: React.FC<MobileDrawerProps> = (props) => {
   const { isOpen, onClose, data } = props;
   const { isOpen: openChild, onToggle } = useDisclosure();
   const { t } = useTranslation();
@@ -44,21 +44,20 @@ export const DrawerMobileNav: React.FC<MobileDrawerProps> = props => {
   return (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
       <DrawerOverlay />
-      <DrawerContent bgColor="#F16623">
+      <DrawerContent bgColor="#0B4649">
         <DrawerCloseButton />
         <DrawerHeader justifyContent="center" display="flex">
-          <Heading fontSize="6xl">BullRun</Heading>
-          {/* <AspectRatio ratio={9 / 3} minWidth="190">
+          <AspectRatio ratio={10 / 3} minWidth="190">
             <Image
-              src={"/assets/logo/folkvangr-logo2.png"}
+              src={"/assets/logo/wang-logo.png"}
               alt="logo-image"
               style={{
                 objectFit: "cover",
               }}
-              sizes="(max-width: 768px) 100vw,"
+              sizes="(max-width: 780px) 100vw,"
               fill
             />
-          </AspectRatio> */}
+          </AspectRatio>
         </DrawerHeader>
         <DrawerBody p="0">
           <Stack spacing="5">
@@ -130,8 +129,21 @@ export const DrawerMobileNav: React.FC<MobileDrawerProps> = props => {
             h="30%"
             alignItems={"center"}
           >
-            <Button>Connect Wallet</Button>
-            {/* <ButtonConnectWallet direction="column" /> */}
+            <ButtonConnectWallet direction="column" />
+          </Stack>
+          <Stack align={"center"}>
+            <AspectRatio ratio={1} minWidth="190">
+              <Image
+                alt="wangcapital"
+                src="https://ik.imagekit.io/msxxxaegj/wangcapital/partner%20img.png?updatedAt=1716493467896"
+                style={{
+                  objectFit: "contain",
+                  opacity: 0.1,
+                }}
+                sizes="(max-width: 768px) 100vw,"
+                fill
+              />
+            </AspectRatio>
           </Stack>
         </DrawerBody>
       </DrawerContent>

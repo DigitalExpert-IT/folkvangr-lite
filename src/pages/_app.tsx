@@ -5,7 +5,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import { getActiveChain } from "lib/chain";
-import { useBullRunContract } from "hooks";
+import { useWangContract } from "hooks";
 import { useTranslation } from "react-i18next";
 import NiceModal from "@ebay/nice-modal-react";
 import {
@@ -55,7 +55,7 @@ const Main = ({ Component, pageProps }: AppProps) => {
   const { t } = useTranslation();
   const wallet = useWallet();
   const chain = useChain();
-  const bullrun = useBullRunContract();
+  const wangcapital = useWangContract();
   const switchChain = useSwitchChain();
   const isConnectThroughIncorrectChain =
     wallet && chain && chain.chainId && chain.chainId !== targetChain?.chainId;
@@ -68,18 +68,17 @@ const Main = ({ Component, pageProps }: AppProps) => {
 
   // Event Handler
   useEffect(() => {
-    if (!bullrun.contract) return;
+    if (!wangcapital.contract) return;
 
-    const unsubscribeBullrunEvents = bullrun.contract.events.listenToAllEvents(
-      event => {
+    const unsubscribeBullrunEvents =
+      wangcapital.contract.events.listenToAllEvents((event) => {
         ee.emit(`bullrun-${event.eventName}`, event.data);
-      }
-    );
+      });
 
     return () => {
       unsubscribeBullrunEvents();
     };
-  }, [bullrun.contract]);
+  }, [wangcapital.contract]);
 
   // mode handler
   useEffect(() => {

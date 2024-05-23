@@ -1,2 +1,2 @@
 export * from "./useAccountMap";
-export * from "./useBullRunContract";
+export * from "./useWangContract";

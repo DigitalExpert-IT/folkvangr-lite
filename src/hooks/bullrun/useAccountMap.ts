@@ -1,19 +1,19 @@
 import ee from "ee";
 import { useEffect } from "react";
 import { ZERO_ADDRESS } from "constant/address";
-import { Network } from "pass-bullrun/typechain-types";
-import { useBullRunContract } from "./useBullRunContract";
+import { NetworkReferral } from "falcon-lite/typechain-types";
+import { useWangContract } from "./useWangContract";
 import { useContractRead, useAddress } from "@thirdweb-dev/react";
 
-type AccountMapType = Awaited<ReturnType<Network["profile"]>>;
+type AccountMapType = Awaited<ReturnType<NetworkReferral["userProfile"]>>;
 
 export const useAccountMap = (byPassAddress?: string | null) => {
-  const contract = useBullRunContract();
+  const contract = useWangContract();
   let address = useAddress();
 
   if (byPassAddress) address = byPassAddress;
 
-  const { data, ...rest } = useContractRead(contract.contract, "profile", [
+  const { data, ...rest } = useContractRead(contract.contract, "userProfile", [
     address ?? ZERO_ADDRESS,
   ]);
 
