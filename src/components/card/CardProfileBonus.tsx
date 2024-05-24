@@ -21,7 +21,9 @@ export const CardProfileBonus = () => {
   const address = useAddress();
   const { data } = useAccountMap();
   const wang = useBalance(WANGTOKEN_CONTRACT[CURRENT_CHAIN_ID as "0x38"]);
-  const personalBuy = useContractRead(nft.contract, "balanceOf", [address]);
+  const personalBuy = useContractRead(nft.contract, "getTotalInvest", [
+    address,
+  ]);
 
   const sponsorReward = useContractRead(nft.contract, "sponsorReward", [
     address,
@@ -54,7 +56,9 @@ export const CardProfileBonus = () => {
         <WidgetProfileBalance bg="#0B5454" px="1rem" rounded="xl">
           <HStack w={"full"} justifyContent={"space-between"}>
             <Text>{t("common.PersonalNft")}</Text>
-            <Text textAlign={"end"}>{personalBuy.data?.toString()}</Text>
+            <Text textAlign={"end"}>
+              {personalBuy.data && fromBn(personalBuy.data, 18)}
+            </Text>
           </HStack>
         </WidgetProfileBalance>
         <WidgetProfileBalance bg="#0B5454" px="1rem" rounded="xl">
