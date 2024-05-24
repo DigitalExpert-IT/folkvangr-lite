@@ -17,7 +17,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 // import { FormInput, FormSelect } from "components/FormUtils";
 // import { ButtonConnectWrapper } from "components/Button";
 // import { getFLDRate, getUsdtRate, prettyBn, shortenAddress } from "utils";
-import { USDT_CONTRACT, WANGCAPITAL_CONTRACT } from "constant/address";
+import { USDT_CONTRACT, WANGNETWORK_CONTRACT } from "constant/address";
 import { BigNumber } from "ethers";
 import { IoCopyOutline } from "react-icons/io5";
 import { CURRENT_CHAIN_ID, useAsyncCall } from "hooks";
@@ -41,7 +41,7 @@ interface IFieldCurrency {
 }
 
 export const FormSwap = () => {
-  const addressFLD = WANGCAPITAL_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
+  const addressFLD = WANGNETWORK_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
   const addressUsdt = USDT_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
   const { t } = useTranslation();
   const [symbol, setSymbol] = useState(false);
@@ -327,8 +327,10 @@ export const FormSwap = () => {
                 bg: "linear-gradient(92deg, #135186 4.65%, #0B4649 96.4%)",
               }}
               // isDisabled={isDisableButtonSwap}
+              isDisabled
             >
-              {t("common.swap")}
+              {/* {t("common.swap")} */}
+              comming soon
             </Button>
           </ButtonConnectWrapper>
         </Stack>
@@ -369,8 +371,8 @@ export const FormSwap = () => {
               px="8"
               pt="3"
             >
-              <AspectRatio ratio={1} width="24px">
-                <Image src="/assets/logo/folkvangr-mini.png" alt="logo-image" />
+              <AspectRatio ratio={2} width="24px">
+                <Image src="/assets/logo/wang-white.png" alt="logo-image" />
               </AspectRatio>
               <Text
                 as={"span"}

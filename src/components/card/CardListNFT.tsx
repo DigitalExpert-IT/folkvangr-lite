@@ -37,11 +37,11 @@ export const CardListNFT: React.FC<CardListNFTProps> = (props) => {
             </Box>
             <Box py="1rem">
               <Text fontWeight="600">
-                Mint Price {props.price} FLD or {props.price} USDT
+                Mint Price {props.price} WANG or {props.price} USDT
               </Text>
-              <Text color="#03E1A5" fontSize="md">
+              {/* <Text color="#03E1A5" fontSize="md">
                 Gacha: 0.7%, 0.8%, 0.9%, 1%, 1.1%, 1.3%, 1.5%
-              </Text>
+              </Text> */}
               <Stack alignItems="center" py="1rem">
                 <Button
                   w="100%"

@@ -48,7 +48,7 @@ export const CardProfileBalance = () => {
           px="1rem"
           rounded="xl"
         >
-          <Image src="/assets/logo/folkvangr-mini.png" alt="Logo FLD" w={10} />
+          <Image src="/assets/logo/wang-white.png" alt="Logo FLD" w={10} />
           <HStack w={"full"} justifyContent={{ base: "end", xs: "center" }}>
             <Text>{prettyBn(wangBalance, 18)} WANG</Text>
           </HStack>

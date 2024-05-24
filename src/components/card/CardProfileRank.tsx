@@ -3,17 +3,18 @@ import React from "react";
 // import { useAccountMap } from "hooks/valhalla";
 import { CardProfile } from "./CardProfile";
 import { Heading, Stack, Spinner } from "@chakra-ui/react";
-// import { useAddress, useContractRead } from "@thirdweb-dev/react";
+import { useAddress, useContractRead } from "@thirdweb-dev/react";
 // import { useNFTFolkContract } from "hooks/useNFTFolkContract";
-// import { fromBn } from "evm-bn";
+import { fromBn } from "evm-bn";
+import { useAccountMap, useNFTWangContract } from "hooks";
 
 export const CardProfileRank = () => {
-  // const nft = useNFTFolkContract();
-  // const address = useAddress();
-  // const { data, isLoading } = useAccountMap();
-  // const { data: personalBuy } = useContractRead(nft.contract, "personalBuy", [
-  //   address,
-  // ]);
+  const nft = useNFTWangContract();
+  const address = useAddress();
+  const { data, isLoading } = useAccountMap();
+  const { data: personalBuy } = useContractRead(nft.contract, "balanceOf", [
+    address,
+  ]);
 
   // const getRank = () => {
   //   if (data === undefined || personalBuy === undefined) return 0;
@@ -51,7 +52,7 @@ export const CardProfileRank = () => {
           mt={"4"}
           textAlign={{ base: "start", lg: "center" }}
         >
-          #S
+          classic
         </Heading>
       </Stack>
     </CardProfile>

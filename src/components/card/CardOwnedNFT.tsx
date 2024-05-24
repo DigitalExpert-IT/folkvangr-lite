@@ -1,27 +1,33 @@
 import React from "react";
-import { prettyBn } from "utils";
-import { TOKEN_ICON } from "constant/icon";
-import { TokenList } from "./CardTokenList";
 import { CARD_IMAGE_MAP } from "constant/image";
 import { useContractRead } from "@thirdweb-dev/react";
 import { useAsyncCall, useNFTWangContract, useNftOwned } from "hooks";
-import { Stack, Box, Text, Button, Image, Spinner } from "@chakra-ui/react";
+import {
+  Stack,
+  Box,
+  Text,
+  Button,
+  Spinner,
+  AspectRatio,
+} from "@chakra-ui/react";
+import { fromBn } from "evm-bn";
+import { useTranslation } from "react-i18next";
 
-export const CardOwnedNFT: React.FC<{ id: string }> = ({ id }) => {
+interface CardOwnedNFTProps {
+  id: string;
+}
+
+export const CardOwnedNFT: React.FC<CardOwnedNFTProps> = (props) => {
+  const { t } = useTranslation();
   const nft = useNFTWangContract();
   const { claimReward } = useNftOwned();
-  const { data: listId } = useContractRead(nft.contract, "getTypeFromTokenId", [
-    id,
+  const { data, isLoading } = useContractRead(nft.contract, "getDetailItem", [
+    props.id,
   ]);
-  const { data, isLoading } = useContractRead(
-    nft.contract,
-    "getCoinInvestDetail",
-    [id]
-  );
   const { exec, isLoading: claimLoading } = useAsyncCall(claimReward);
 
   const handleClaim = async () => {
-    await exec(id);
+    await exec(props.id);
   };
 
   return (
@@ -29,62 +35,69 @@ export const CardOwnedNFT: React.FC<{ id: string }> = ({ id }) => {
       <Stack
         p="0.5"
         mt="5"
-        bgGradient="linear(to-r, #F96C6C, #F16623)"
+        bgGradient="linear(130deg, #1C77CC, #02E5A3)"
         borderRadius="xl"
       >
-        <Box
-          borderRadius="xl"
-          bg="#1E1E1E"
-          px={{ base: 1.5, sm: 2, md: 5 }}
-          py={5}
-        >
-          <Box rounded="xl" overflow="hidden" m="2">
-            <Image
-              src={CARD_IMAGE_MAP[listId as 0]}
-              alt={`0`}
-              objectFit="cover"
-            />
+        {isLoading ? (
+          <Box display="flex" justifyContent="center" minH="55vh" w="100%">
+            <Spinner size="sm" />
           </Box>
-          <Stack my="5">
-            {isLoading ? (
-              <Box display="flex" justifyContent="center" minH="55vh">
-                <Spinner size="xl" />
-              </Box>
-            ) : data?.length !== 0 ? (
-              data?.map((item: any, idx: number) => (
-                <Box key={idx}>
-                  <TokenList
-                    name={
-                      TOKEN_ICON[
-                        item.contractAddress as "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D"
-                      ].name
-                    }
-                    image={
-                      TOKEN_ICON[
-                        item.contractAddress as "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D"
-                      ].url
-                    }
-                    amount={prettyBn(item.amount, 18)}
+        ) : (
+          <Box
+            borderRadius="xl"
+            bg="#1E1E1E"
+            px={{ base: 1.5, sm: 2, md: 5 }}
+            py={5}
+          >
+            <Box rounded="xl" overflow="hidden" m="2">
+              <AspectRatio w={{ base: "2xs", md: "xs" }} ratio={1}>
+                <Box as="video" autoPlay loop muted rounded="xl">
+                  <source
+                    src={CARD_IMAGE_MAP[data.listId as "0"]}
+                    type="video/mp4"
                   />
                 </Box>
-              ))
-            ) : (
-              <Text>Data not found</Text>
-            )}
-          </Stack>
-          <Button
-            w="full"
-            rounded="lg"
-            size="sm"
-            variant="solid"
-            colorScheme="orange"
-            color="white"
-            onClick={handleClaim}
-            isLoading={claimLoading}
-          >
-            Claim
-          </Button>
-        </Box>
+              </AspectRatio>
+            </Box>
+            <Stack my="5">
+              <Stack direction="row" spacing={1} justify="space-between">
+                <Text fontWeight="bold" fontSize="16px">
+                  Minting: {fromBn(data.rewardPerday, 18)}
+                </Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  {Number(data.pecentage) / 10 + "%"}
+                </Text>
+              </Stack>
+              <Text fontWeight="bold" fontSize="md">
+                Max Farm: {fromBn(data.maxFarm, 18)}
+              </Text>
+              <Box>
+                <Text
+                  fontWeight="bold"
+                  textTransform="capitalize"
+                  color="#05D9A8"
+                  fontSize="16px"
+                >
+                  {t("common.globalNetworkFarm") +
+                    " " +
+                    data.listId.add(1).toNumber()}
+                </Text>
+              </Box>
+            </Stack>
+            <Button
+              w="full"
+              rounded="lg"
+              size="sm"
+              variant="solid"
+              colorScheme="teal"
+              color="white"
+              onClick={handleClaim}
+              isLoading={claimLoading}
+            >
+              Claim
+            </Button>
+          </Box>
+        )}
       </Stack>
     </Box>
   );

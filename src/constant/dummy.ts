@@ -7,84 +7,84 @@ export interface IRankSystem {
 
 export interface IRankNetwork {
   rank: string;
-  level: string;
-  sponsor: string;
-  matching: string;
-  turnover: string;
-  personalBuy: string;
+  subscription: string;
+  matchinglvl: string;
+  matchingrwd: string;
+  maxfarm: string;
+  directsponsor: string;
 }
 
 export const RANKSYSTEM: Array<IRankSystem> = [
   {
-    share: "Referral",
-    percent: "10%",
+    share: "Investment Pool",
+    percent: "35%",
+  },
+  {
+    share: "Liquidity Pool",
+    percent: "35%",
+  },
+  {
+    share: "Community Development Pool",
+    percent: "15%",
   },
   {
     share: "Marketing",
-    percent: "30%",
+    percent: "7.5%",
   },
   {
-    share: "Address Bridge",
-    percent: "30%",
-  },
-  {
-    share: "Swap to Shiba Liquidity",
-    percent: "15%",
-  },
-  {
-    share: "Swap to XRP Liquidity",
-    percent: "15%",
+    share: "Reserve",
+    percent: "7.5%",
   },
 ];
 
 export const RANKNETWORK: Array<IRankNetwork> = [
   {
-    rank: "Classic",
-    level: "Level 1",
-    sponsor: "5%",
-    matching: "20%",
-    turnover: "",
-    personalBuy: "20",
+    rank: "Classic                   ",
+    subscription: "100 USDT / WANG ",
+    matchinglvl: "3 Level",
+    matchingrwd: "10%",
+    maxfarm: "200%",
+    directsponsor: "10%",
+  },
+  {
+    rank: "Bronze",
+    subscription: "300 USDT / WANG",
+    matchinglvl: "4 Level",
+    matchingrwd: "10%",
+    maxfarm: "250%",
+    directsponsor: "10%",
   },
   {
     rank: "Silver",
-    level: "Level 2",
-    sponsor: "3%",
-    matching: "10%",
-    turnover: "500",
-    personalBuy: "100",
+    subscription: "500 USDT / WANG",
+    matchinglvl: "5 Level",
+    matchingrwd: "10%",
+    maxfarm: "300%",
+    directsponsor: "10%",
   },
   {
     rank: "Gold",
-    level: "Level 3",
-    sponsor: "2%",
-    matching: "10%",
-    turnover: "2000",
-    personalBuy: "100",
+    subscription: "1000 USDT / WANG",
+    matchinglvl: "6 Level",
+    matchingrwd: "10%",
+    maxfarm: "350%",
+    directsponsor: "10%",
   },
   {
-    rank: "Platinum",
-    level: "Level 4",
-    sponsor: "",
-    matching: "10%",
-    turnover: "8000",
-    personalBuy: "100",
-  },
-  {
-    rank: "Diamond",
-    level: "Level 5",
-    sponsor: "",
-    matching: "10%",
-    turnover: "15000",
-    personalBuy: "500",
+    rank: "Solid Gold",
+    subscription: "5000 USDT / WANG",
+    matchinglvl: "7 Level",
+    matchingrwd: "10%",
+    maxfarm: "500%",
+    directsponsor: "10%",
   },
   {
     rank: "Priority",
-    level: "Level 6",
-    sponsor: "",
-    matching: "10%",
-    turnover: "30000",
-    personalBuy: "500",
+    subscription: "10000 USDT / WANG",
+    matchinglvl: "10 Level",
+    matchingrwd: "10%",
+    maxfarm: "700%",
+    directsponsor: "10%",
   },
 ];
 

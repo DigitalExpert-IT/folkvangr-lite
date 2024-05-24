@@ -3,14 +3,13 @@ import {
   useAddress,
   useOwnedNFTs,
   useContractWrite,
-  useContractRead,
 } from "@thirdweb-dev/react";
 
 export const useNftOwned = () => {
   const nft = useNFTWangContract();
   const address = useAddress() ?? null;
   const nftOwned = useOwnedNFTs(nft.contract, address);
-  const claim = useContractWrite(nft.contract, "claimNft");
+  const claim = useContractWrite(nft.contract, "grind");
 
   const claimReward = async (tokenId: string) => {
     const claimNft = await claim.mutateAsync({ args: [tokenId] });

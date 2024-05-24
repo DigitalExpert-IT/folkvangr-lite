@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { CardProfile } from "./CardProfile";
 import { IoCopyOutline } from "react-icons/io5";
 import { useAddress } from "@thirdweb-dev/react";
-import { WANGNETWORK_CONTRACT } from "constant/address";
+import { WANGNETWORK_CONTRACT, WANGTOKEN_CONTRACT } from "constant/address";
 import { CopiableText } from "components/CopiableText";
 import { CURRENT_CHAIN_ID, useAccountMap } from "hooks";
 import { WidgetProfileBalance } from "components/widget";
-import { Center, Text, VStack, Heading, Box } from "@chakra-ui/react";
+import { Center, Text, VStack } from "@chakra-ui/react";
 
-const netContract = WANGNETWORK_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
+const wangContract = WANGTOKEN_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
 
 export const CardProfileAddress = () => {
   const router = useRouter();
@@ -28,17 +28,7 @@ export const CardProfileAddress = () => {
 
   return (
     <CardProfile placeContent="left" align="left">
-      <Box
-        w="100%"
-        px="2"
-        display="flex"
-        flexDirection="column"
-        textAlign="left"
-      >
-        <Heading size="lg">Team Performance</Heading>
-        <Text fontSize="lg">1000</Text>
-      </Box>
-      <VStack gap={"8"} mt="3rem">
+      <VStack gap={"8"} mt="1rem">
         <WidgetProfileBalance w="full" justifyContent="center">
           <Center py={"2"}>
             <CopiableText
@@ -46,7 +36,7 @@ export const CardProfileAddress = () => {
               textAlign={"left"}
               gap={2}
               fontSize={{ base: "2xs", sm: "xs", xl: "sm" }}
-              value={netContract}
+              value={wangContract}
             >
               <Text
                 as={"span"}
@@ -56,11 +46,10 @@ export const CardProfileAddress = () => {
                 gap={"2"}
                 fontSize={"lg"}
               >
-                {/* {t("common.contractFld")} */}
-                Network
+                {t("common.contractWang")}
                 <IoCopyOutline />
               </Text>
-              {netContract?.toUpperCase()}
+              {wangContract?.toUpperCase()}
             </CopiableText>
           </Center>
         </WidgetProfileBalance>

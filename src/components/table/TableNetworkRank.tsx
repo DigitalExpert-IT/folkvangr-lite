@@ -37,7 +37,7 @@ const columns = [
     header: t("common.rank") ?? "",
   }),
 
-  columnHelper.accessor("turnover", {
+  columnHelper.accessor("subscription", {
     cell: (info) => (
       <Text
         fontSize={{ base: "sm", md: "xl" }}
@@ -50,7 +50,7 @@ const columns = [
     header: t("common.turnover") ?? "",
   }),
 
-  columnHelper.accessor("level", {
+  columnHelper.accessor("matchinglvl", {
     cell: (info) => (
       <Stack
         direction="row"
@@ -69,7 +69,7 @@ const columns = [
     ),
     header: t("common.level") ?? "",
   }),
-  columnHelper.accessor("sponsor", {
+  columnHelper.accessor("matchingrwd", {
     cell: (info) => (
       <Text
         fontSize={{ base: "sm", md: "xl" }}
@@ -81,7 +81,7 @@ const columns = [
     ),
     header: t("common.sponsor") ?? "",
   }),
-  columnHelper.accessor("matching", {
+  columnHelper.accessor("maxfarm", {
     cell: (info) => (
       <Text
         fontSize={{ base: "sm", md: "xl" }}
@@ -93,7 +93,7 @@ const columns = [
     ),
     header: t("common.matchingBonus") ?? "",
   }),
-  columnHelper.accessor("personalBuy", {
+  columnHelper.accessor("directsponsor", {
     cell: (info) => (
       <Text
         fontSize={{ base: "sm", md: "xl" }}

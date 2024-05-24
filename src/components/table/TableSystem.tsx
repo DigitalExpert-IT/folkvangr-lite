@@ -80,7 +80,7 @@ export const TableSystem = () => {
         textTransform="uppercase"
         fontSize={{ md: "6xl", base: "4xl" }}
       >
-        Wangcapital nft system
+        Wang capital nft system
       </Heading>
 
       <TableData
