@@ -10,9 +10,9 @@ const handler: NextApiHandler = async (req, res) => {
       .json({ status: 404, message: "The requested URL was not found" });
   }
   const imageTemplate = {
-    name: `Bullcuan ${Number(id) + 1}`,
-    description: `NFT Bullcuan ${Number(id) + 1}`,
-    external_url: `https://bullcuan.com/api/nft/${id}`,
+    name: `Wang Capital ${Number(id) + 1}`,
+    description: `NFT Wang Capital ${Number(id) + 1}`,
+    external_url: `https://wangcapital.io/api/nft/${id}`,
     image: image,
   };
 

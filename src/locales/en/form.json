@@ -12,7 +12,8 @@
   },
   "message": {
     "registrationSuccess": "Registration Success!",
-    "swapSucces": "Succes Swap"
+    "swapSucces": "Succes Swap",
+    "claimSuccess": "Claim Success"
   },
   "helperText": {
     "referrer": "Please enter your referral address",

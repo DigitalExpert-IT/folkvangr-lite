@@ -4,7 +4,7 @@ import { useAddress, useContractWrite } from "@thirdweb-dev/react";
 import { FalconDefi } from "falcon-lite/typechain-types";
 import { useUSDTContract, useNFTWangContract, useAccountMap } from "hooks";
 
-type BaseCardType = Awaited<ReturnType<FalconDefi["getDetailItem"]>>;
+type BaseCardType = Awaited<ReturnType<FalconDefi["list"]>>;
 type NFTType = BaseCardType & {
   id: BigNumber;
 };
@@ -25,7 +25,7 @@ export const useNftList = () => {
     try {
       const nftList = await Promise.all(
         new Array(6).fill(null).map(async (_, cardId) => {
-          const nftItem = await nft.contract!.call("getDetailItem", [cardId]);
+          const nftItem = await nft.contract!.call("list", [cardId]);
           return {
             ...nftItem,
             id: BigNumber.from(cardId),

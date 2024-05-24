@@ -25,7 +25,10 @@ export const CardOwnedNFT: React.FC<CardOwnedNFTProps> = (props) => {
   const { data, isLoading } = useContractRead(nft.contract, "getDetailItem", [
     props.id,
   ]);
-  const { exec, isLoading: claimLoading } = useAsyncCall(claimReward);
+  const { exec, isLoading: claimLoading } = useAsyncCall(
+    claimReward,
+    t("form.message.claimSuccess")
+  );
 
   const handleClaim = async () => {
     await exec(props.id);
