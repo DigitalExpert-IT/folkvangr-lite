@@ -1,28 +1,26 @@
-import { HStack, Image, Stack, Text } from "@chakra-ui/react";
-import { useAddress, useBalance } from "@thirdweb-dev/react";
-import { ZERO_ADDRESS } from "constant/address";
-import { Trans } from "react-i18next";
 import { prettyBn } from "utils";
-import { useEffect, useState } from "react";
-import { WidgetProfileBalance } from "components/widget";
-import { CardProfileBonus } from "./CardProfileBonus";
-import { useUSDTContract } from "hooks";
 import { BigNumber } from "ethers";
-// import { useUSDTContract } from "hooks/useUSDTContract";
-// import { BigNumber } from "ethers";
-// import { useFLDContract } from "hooks/useFLDContract";
+import { Trans } from "react-i18next";
+import { useUSDTContract } from "hooks";
+import { useEffect, useState } from "react";
+import { ZERO_ADDRESS } from "constant/address";
+import { CardProfileBonus } from "./CardProfileBonus";
+import { WidgetProfileBalance } from "components/widget";
+import { useAddress, useBalance } from "@thirdweb-dev/react";
+import { HStack, Image, Stack, Text } from "@chakra-ui/react";
+import { useWangTokenContract } from "hooks/useWangTokenContract";
 
 export const CardProfileBalance = () => {
   const balance = useBalance();
   const address = useAddress() ?? ZERO_ADDRESS;
   const usdt = useUSDTContract();
-  // const fld = useFLDContract();
+  const wang = useWangTokenContract();
 
-  // const [fldBalance, setFldBalance] = useState<BigNumber>();
+  const [wangBalance, setWangBalance] = useState<BigNumber>();
   const [usdtBalance, setUsdtBalance] = useState<BigNumber>();
 
   const getBalance = async () => {
-    // setFldBalance((await fld.contract?.call("balanceOf", [address])) ?? 0);
+    setWangBalance((await wang.contract?.call("balanceOf", [address])) ?? 0);
     setUsdtBalance((await usdt.contract?.call("balanceOf", [address])) ?? 0);
   };
 
@@ -52,7 +50,7 @@ export const CardProfileBalance = () => {
         >
           <Image src="/assets/logo/folkvangr-mini.png" alt="Logo FLD" w={10} />
           <HStack w={"full"} justifyContent={{ base: "end", xs: "center" }}>
-            <Text>1000 WANG</Text>
+            <Text>{prettyBn(wangBalance, 18)} WANG</Text>
           </HStack>
         </WidgetProfileBalance>
         <WidgetProfileBalance

@@ -9,7 +9,6 @@ import {
 import { CardListNFT } from "components/card";
 import { useNftList } from "hooks";
 import { prettyBn } from "utils";
-// import { prettyBn } from "utils";
 
 export const SectionNFTList = () => {
   const { data, isLoading } = useNftList();
@@ -60,7 +59,7 @@ export const SectionNFTList = () => {
             <WrapItem w={{ md: "25%", sm: "45%", base: "100%" }} key={idx}>
               <CardListNFT
                 title={`WANGNFT ${e.id.add(1)}`}
-                price={prettyBn(e.price, 6)}
+                price={prettyBn(e.price, 18)}
                 id={Number(e.id)}
               />
             </WrapItem>

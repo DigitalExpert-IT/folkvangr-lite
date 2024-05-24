@@ -2,13 +2,13 @@ import ee from "ee";
 import { useEffect } from "react";
 import { ZERO_ADDRESS } from "constant/address";
 import { NetworkReferral } from "falcon-lite/typechain-types";
-import { useWangContract } from "./useWangContract";
+import { useWangNetContract } from "./useWangNetContract";
 import { useContractRead, useAddress } from "@thirdweb-dev/react";
 
 type AccountMapType = Awaited<ReturnType<NetworkReferral["userProfile"]>>;
 
 export const useAccountMap = (byPassAddress?: string | null) => {
-  const contract = useWangContract();
+  const contract = useWangNetContract();
   let address = useAddress();
 
   if (byPassAddress) address = byPassAddress;
@@ -18,10 +18,10 @@ export const useAccountMap = (byPassAddress?: string | null) => {
   ]);
 
   useEffect(() => {
-    ee.addListener("bullrun-register", rest.refetch);
+    ee.addListener("wangcapital-register", rest.refetch);
 
     return () => {
-      ee.removeListener("bullrun-register", rest.refetch);
+      ee.removeListener("wangcapital-register", rest.refetch);
     };
   }, []);
 

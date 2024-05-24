@@ -5,7 +5,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import { getActiveChain } from "lib/chain";
-import { useWangContract } from "hooks";
+import { useWangNetContract } from "hooks";
 import { useTranslation } from "react-i18next";
 import NiceModal from "@ebay/nice-modal-react";
 import {
@@ -55,7 +55,7 @@ const Main = ({ Component, pageProps }: AppProps) => {
   const { t } = useTranslation();
   const wallet = useWallet();
   const chain = useChain();
-  const wangcapital = useWangContract();
+  const wangcapital = useWangNetContract();
   const switchChain = useSwitchChain();
   const isConnectThroughIncorrectChain =
     wallet && chain && chain.chainId && chain.chainId !== targetChain?.chainId;

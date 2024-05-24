@@ -9,7 +9,7 @@ import { Stack, Box, Text, Button, Image, Spinner } from "@chakra-ui/react";
 
 export const CardOwnedNFT: React.FC<{ id: string }> = ({ id }) => {
   const nft = useNFTWangContract();
-  const { claimReward, isStartedClaim } = useNftOwned();
+  const { claimReward } = useNftOwned();
   const { data: listId } = useContractRead(nft.contract, "getTypeFromTokenId", [
     id,
   ]);

@@ -1,5 +1,5 @@
 export * from "./nft";
-export * from "./bullrun";
+export * from "./wang";
 export * from "./useScreen";
 export * from "./useAsyncCall";
 export * from "./useUSDTContract";

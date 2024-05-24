@@ -1,4 +1,4 @@
-import { CURRENT_CHAIN_ID } from "./bullrun";
+import { CURRENT_CHAIN_ID } from "./wang";
 import { useContract } from "@thirdweb-dev/react";
 import { USDT_CONTRACT } from "constant/address";
 import usdt from "pass-bullrun/artifacts/contracts/Usdt.sol/USDT.json";

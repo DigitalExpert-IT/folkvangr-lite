@@ -15,7 +15,7 @@ export const CardListNFT: React.FC<CardListNFTProps> = (props) => {
 
   const { exec, isLoading } = useAsyncCall(buy, t("common.succesBuyNft"));
 
-  const handleBuy = () => {
+  const handleBuyUsdt = () => {
     exec(props.id);
   };
 
@@ -48,8 +48,8 @@ export const CardListNFT: React.FC<CardListNFTProps> = (props) => {
                   rounded="lg"
                   background="#0B5454"
                   _hover={{ background: "#073c3c" }}
-                  // onClick={() => handleBuyUSDT()}
-                  // isLoading={usdtLoading}
+                  onClick={() => handleBuyUsdt()}
+                  isLoading={isLoading}
                 >
                   Buy with {props.price} USDT
                 </Button>
@@ -60,6 +60,7 @@ export const CardListNFT: React.FC<CardListNFTProps> = (props) => {
                   _hover={{ background: "#073c3c" }}
                   // onClick={() => handleBuyFLD()}
                   // isLoading={fldLoading}
+                  isDisabled
                 >
                   Buy with {props.price} WANG
                 </Button>
