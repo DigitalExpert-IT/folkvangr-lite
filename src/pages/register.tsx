@@ -23,7 +23,7 @@ const Registerv2 = () => {
       />
       <Stack bgGradient="linear-gradient(180deg, #0E222F 0%, #0A1525 100%)">
         <Stack alignItems={"center"} minH={"100vh"} gap={"8"} pb={"10"}>
-          <Box
+          {/* <Box
             as="header"
             textAlign="center"
             px={{ base: "8", lg: "4" }}
@@ -56,7 +56,7 @@ const Registerv2 = () => {
                 }}
               />
             </Text>
-          </Box>
+          </Box> */}
 
           <Card
             bg={"white"}
@@ -65,6 +65,7 @@ const Registerv2 = () => {
             mx="auto"
             maxW="4xl"
             overflow={"hidden"}
+            mt={{ base: "5rem", md: "15rem" }}
           >
             <CardBody
               display={"flex"}

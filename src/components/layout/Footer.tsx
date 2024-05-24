@@ -76,15 +76,6 @@ export const Footer = () => {
             </Box>
           </Flex>
         </Container>
-        <HStack justify={"center"} pb={"2rem"}>
-          {ICONS_FOOTER.map((row, i) => (
-            <Box key={i} alignItems="center" justifyContent="center">
-              <Link href={row.href} target="_blank">
-                <Icon as={row.icons} w={5} h={5} color="white" />
-              </Link>
-            </Box>
-          ))}
-        </HStack>
       </Box>
       <Flex justify={"center"} py={2}>
         <Text fontSize={{ base: "sm", sm: "md" }}>
