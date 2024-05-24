@@ -11,6 +11,7 @@ export interface IRankNetwork {
   matchinglvl: string;
   matchingrwd: string;
   maxfarm: string;
+  dailyfarm: string;
   directsponsor: string;
 }
 
@@ -45,6 +46,7 @@ export const RANKNETWORK: Array<IRankNetwork> = [
     matchingrwd: "10%",
     maxfarm: "200%",
     directsponsor: "10%",
+    dailyfarm: "0.25%",
   },
   {
     rank: "Bronze",
@@ -53,6 +55,7 @@ export const RANKNETWORK: Array<IRankNetwork> = [
     matchingrwd: "10%",
     maxfarm: "250%",
     directsponsor: "10%",
+    dailyfarm: "0.30%",
   },
   {
     rank: "Silver",
@@ -61,6 +64,7 @@ export const RANKNETWORK: Array<IRankNetwork> = [
     matchingrwd: "10%",
     maxfarm: "300%",
     directsponsor: "10%",
+    dailyfarm: "0.40%",
   },
   {
     rank: "Gold",
@@ -69,6 +73,7 @@ export const RANKNETWORK: Array<IRankNetwork> = [
     matchingrwd: "10%",
     maxfarm: "350%",
     directsponsor: "10%",
+    dailyfarm: "0.50%",
   },
   {
     rank: "Solid Gold",
@@ -77,6 +82,7 @@ export const RANKNETWORK: Array<IRankNetwork> = [
     matchingrwd: "10%",
     maxfarm: "500%",
     directsponsor: "10%",
+    dailyfarm: "0.60%",
   },
   {
     rank: "Priority",
@@ -85,6 +91,7 @@ export const RANKNETWORK: Array<IRankNetwork> = [
     matchingrwd: "10%",
     maxfarm: "700%",
     directsponsor: "10%",
+    dailyfarm: "0.70%",
   },
 ];
 

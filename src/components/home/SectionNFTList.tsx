@@ -7,6 +7,7 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import { CardListNFT } from "components/card";
+import { RANK_NFT } from "constant/ranknft";
 import { useNftList } from "hooks";
 import { prettyBn } from "utils";
 
@@ -39,7 +40,7 @@ export const SectionNFTList = () => {
           textTransform="uppercase"
           fontSize={{ md: "6xl", base: "4xl" }}
         >
-          nft pocket
+          wang nft
         </Heading>
       </Box>
       <Container maxW={"container.xxl"}>
@@ -58,7 +59,7 @@ export const SectionNFTList = () => {
           {data.map((e, idx) => (
             <WrapItem w={{ md: "25%", sm: "45%", base: "100%" }} key={idx}>
               <CardListNFT
-                title={`WANGNFT ${e.id.add(1)}`}
+                title={RANK_NFT[e.id.toString() as "0"]}
                 price={prettyBn(e.price, 18)}
                 id={Number(e.id)}
               />

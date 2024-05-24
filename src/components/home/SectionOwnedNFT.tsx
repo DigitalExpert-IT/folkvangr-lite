@@ -16,6 +16,7 @@ import { useConnectionStatus } from "@thirdweb-dev/react";
 export const SectionOwnedNFT = () => {
   const { t } = useTranslation();
   const { data, isLoading } = useNftOwned();
+  console.log(data);
   const statusConnect = useConnectionStatus();
 
   return (

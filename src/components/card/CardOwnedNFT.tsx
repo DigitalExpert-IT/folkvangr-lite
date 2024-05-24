@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { fromBn } from "evm-bn";
 import { useTranslation } from "react-i18next";
+import { RANK_NFT } from "constant/ranknft";
 
 interface CardOwnedNFTProps {
   id: string;
@@ -60,17 +61,6 @@ export const CardOwnedNFT: React.FC<CardOwnedNFTProps> = (props) => {
               </AspectRatio>
             </Box>
             <Stack my="5">
-              <Stack direction="row" spacing={1} justify="space-between">
-                <Text fontWeight="bold" fontSize="16px">
-                  Minting: {fromBn(data.rewardPerday, 18)}
-                </Text>
-                <Text fontWeight="bold" fontSize="lg">
-                  {Number(data.pecentage) / 10 + "%"}
-                </Text>
-              </Stack>
-              <Text fontWeight="bold" fontSize="md">
-                Max Farm: {fromBn(data.maxFarm, 18)}
-              </Text>
               <Box>
                 <Text
                   fontWeight="bold"
@@ -80,9 +70,20 @@ export const CardOwnedNFT: React.FC<CardOwnedNFTProps> = (props) => {
                 >
                   {t("common.globalNetworkFarm") +
                     " " +
-                    data.listId.add(1).toNumber()}
+                    RANK_NFT[data.listId as "0"]}
                 </Text>
               </Box>
+              <Stack direction="row" spacing={1} justify="space-between">
+                <Text fontWeight="bold" fontSize="16px">
+                  Daily Rewards : {fromBn(data.rewardPerday, 18)} USDT
+                </Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  {Number(data.pecentage) / 100 + "%"}
+                </Text>
+              </Stack>
+              <Text fontWeight="bold" fontSize="md">
+                Max Farm : {fromBn(data.maxFarm, 18)} USDT
+              </Text>
             </Stack>
             <Button
               w="full"

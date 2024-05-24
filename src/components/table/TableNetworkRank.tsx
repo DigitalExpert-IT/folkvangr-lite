@@ -50,6 +50,26 @@ const columns = [
     header: t("common.turnover") ?? "",
   }),
 
+  columnHelper.accessor("dailyfarm", {
+    cell: (info) => (
+      <Stack
+        direction="row"
+        w={{ base: 20, md: 20 }}
+        whiteSpace="pre-wrap"
+        justify="center"
+      >
+        <Text
+          fontSize={{ base: "sm", md: "xl" }}
+          textTransform="capitalize"
+          color="gray.300"
+        >
+          {info.getValue()}
+        </Text>
+      </Stack>
+    ),
+    header: t("common.dailyfarm") ?? "",
+  }),
+
   columnHelper.accessor("matchinglvl", {
     cell: (info) => (
       <Stack
@@ -69,6 +89,7 @@ const columns = [
     ),
     header: t("common.level") ?? "",
   }),
+
   columnHelper.accessor("matchingrwd", {
     cell: (info) => (
       <Text
