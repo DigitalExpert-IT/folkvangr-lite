@@ -393,7 +393,7 @@ export const FormSwap = () => {
               p="3"
               justifyContent="space-between"
             >
-              <Text fontSize="sm">Import FLD</Text>
+              <Text fontSize="sm">Import WANG</Text>
               <Box display="flex" alignItems="center">
                 <CopiableText
                   value={addressFLD}
