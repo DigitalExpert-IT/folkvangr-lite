@@ -1,4 +1,4 @@
-import { useNFTBullRunContract } from "hooks";
+import { useWangContract } from "hooks";
 import {
   useAddress,
   useOwnedNFTs,
@@ -7,7 +7,7 @@ import {
 } from "@thirdweb-dev/react";
 
 export const useNftOwned = () => {
-  const nft = useNFTBullRunContract();
+  const nft = useWangContract();
   const address = useAddress() ?? null;
   const claim = useContractWrite(nft.contract, "claimNft");
   const isStartedClaim = useContractRead(nft.contract, "isStartedClaim");

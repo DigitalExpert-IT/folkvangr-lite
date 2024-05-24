@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
 import { useModal } from "@ebay/nice-modal-react";
 import { validateRequired, validateAddress, shortenAddress } from "utils";
-import { useAsyncCall, useBullRunContract } from "hooks";
+import { useAsyncCall, useWangContract } from "hooks";
 import { FormInput, ModalDiscalimer, ButtonConnectWrapper } from "components";
 import { useAddress, useContractWrite } from "@thirdweb-dev/react";
 import { ZERO_ADDRESS } from "constant/address";
@@ -23,7 +23,7 @@ type FormType = {
 };
 
 export const FormRegister = () => {
-  const bullrun = useBullRunContract();
+  const bullrun = useWangContract();
   const address = useAddress() ?? ZERO_ADDRESS;
   const { t } = useTranslation();
   const bullrunRegis = useContractWrite(bullrun.contract, "register");

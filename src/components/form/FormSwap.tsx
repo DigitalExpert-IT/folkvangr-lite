@@ -17,7 +17,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 // import { FormInput, FormSelect } from "components/FormUtils";
 // import { ButtonConnectWrapper } from "components/Button";
 // import { getFLDRate, getUsdtRate, prettyBn, shortenAddress } from "utils";
-import { USDT_CONTRACT, BULLRUN_CONTRACT } from "constant/address";
+import { USDT_CONTRACT, WANGCAPITAL_CONTRACT } from "constant/address";
 import { BigNumber } from "ethers";
 import { IoCopyOutline } from "react-icons/io5";
 import { CURRENT_CHAIN_ID, useAsyncCall } from "hooks";
@@ -41,7 +41,7 @@ interface IFieldCurrency {
 }
 
 export const FormSwap = () => {
-  const addressFLD = BULLRUN_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
+  const addressFLD = WANGCAPITAL_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
   const addressUsdt = USDT_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
   const { t } = useTranslation();
   const [symbol, setSymbol] = useState(false);
