@@ -117,7 +117,7 @@ export const FormSwap = () => {
       } else {
         if (fieldTarget === "amountTop") {
           if (value) {
-            swapFee = toBn(value, 18).mul(toBn("1", 18)).div(toBn("90", 18));
+            swapFee = toBn(value, 18).mul(toBn("1", 18)).div(toBn("99", 18));
             setFee(swapFee);
           }
 
