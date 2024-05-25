@@ -58,7 +58,7 @@ export const useNftList = () => {
 
     if (cardPrice.gt(usdtBalance)) {
       throw {
-        code: "NotEnoughUSDTBalance",
+        code: "NotEnoughUsdtBalance",
       };
     }
 

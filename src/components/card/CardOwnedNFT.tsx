@@ -22,9 +22,11 @@ export const CardOwnedNFT: React.FC<CardOwnedNFTProps> = (props) => {
   const { t } = useTranslation();
   const nft = useNFTWangContract();
   const { claimReward } = useNftOwned();
-  const { data, isLoading } = useContractRead(nft.contract, "getDetailItem", [
-    props.id,
-  ]);
+  const { data, isLoading } = useContractRead(
+    nft.contract,
+    "getTokenSoldById",
+    [props.id]
+  );
   const { exec, isLoading: claimLoading } = useAsyncCall(
     claimReward,
     t("form.message.claimSuccess")

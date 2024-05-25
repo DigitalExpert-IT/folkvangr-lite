@@ -232,7 +232,7 @@ export const FormSwap = () => {
           >
             {t("form.helperText.fee", {
               value: fromBn(fee, 18),
-              symbol: symbol ? "USDT" : "Wang",
+              symbol: symbol ? "USDT" : "WANG",
             })}
           </Text>
 
@@ -330,7 +330,7 @@ export const FormSwap = () => {
               isDisabled
             >
               {/* {t("common.swap")} */}
-              comming soon
+              coming soon
             </Button>
           </ButtonConnectWrapper>
         </Stack>
@@ -383,7 +383,7 @@ export const FormSwap = () => {
                 {/* {Number(fromBn(balanceFLD?.value ?? toBn("0", 18), 18)) < 1
                   ? fromBn(balanceFLD?.value ?? toBn("0", 18), 18)
                   : prettyBn(balanceFLD?.value, 18)}{" "} */}
-                Wang
+                WANG
               </Text>
             </Stack>
             <HStack

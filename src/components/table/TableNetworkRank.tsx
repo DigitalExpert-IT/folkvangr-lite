@@ -67,7 +67,7 @@ const columns = [
         </Text>
       </Stack>
     ),
-    header: t("common.dailyfarm") ?? "",
+    header: t("common.dailyReward") ?? "",
   }),
 
   columnHelper.accessor("matchinglvl", {
