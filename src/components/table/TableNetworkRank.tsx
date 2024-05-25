@@ -102,7 +102,7 @@ const columns = [
     ),
     header: t("common.sponsor") ?? "",
   }),
-  columnHelper.accessor("maxfarm", {
+  columnHelper.accessor("directsponsor", {
     cell: (info) => (
       <Text
         fontSize={{ base: "sm", md: "xl" }}
@@ -114,7 +114,7 @@ const columns = [
     ),
     header: t("common.matchingBonus") ?? "",
   }),
-  columnHelper.accessor("directsponsor", {
+  columnHelper.accessor("maxfarm", {
     cell: (info) => (
       <Text
         fontSize={{ base: "sm", md: "xl" }}
@@ -124,7 +124,7 @@ const columns = [
         {info.getValue()}
       </Text>
     ),
-    header: t("common.personalBuy") ?? "",
+    header: t("common.maxfarm") ?? "",
   }),
 ];
 
