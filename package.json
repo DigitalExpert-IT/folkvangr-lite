@@ -41,7 +41,7 @@
     "ethers": "^5.7.2",
     "eventemitter3": "^5.0.1",
     "evm-bn": "^1.1.2",
-    "falcon-lite": "^1.0.0",
+    "falcon-lite": "^1.1.0",
     "framer-motion": "^7.6.18",
     "i18next": "^22.0.6",
     "immer": "^9.0.16",
