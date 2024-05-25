@@ -22,5 +22,5 @@ export const USDT_CONTRACT = {
 
 export const SWAP_CONTRACT = {
   "0x38": "0xebfB3582a0456026aF5480700af8eDc623cbaAAE",
-  "0x61": "",
+  "0x61": "0x71672eFAF2dee209fA1d46F8237f479DA59e583E",
 };
