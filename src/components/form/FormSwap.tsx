@@ -145,7 +145,7 @@ export const FormSwap = () => {
     return toBn(amountTop, 18) <= toBn("0", 18);
   }, [watchAmountTop]);
 
-  const onSubmit = handleSubmit(async (data) => {
+  const onSubmit = handleSubmit(async (data: ISwapToken) => {
     const { amountTop } = getValues();
 
     if (data.currency === "WANG") {
