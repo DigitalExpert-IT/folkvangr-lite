@@ -114,18 +114,17 @@ export const FormSwap = () => {
 
       if (currency === "WANG") {
         swapResult = fromBn(getUsdtRate(value ? value : "0"), 18);
-      }
-      if (currency === "USDT") {
+      } else {
         if (fieldTarget === "amountTop") {
           if (value) {
-            swapFee = toBn(value, 18).mul(toBn("10", 18)).div(toBn("90", 18));
+            swapFee = toBn(value, 18).mul(toBn("1", 18)).div(toBn("90", 18));
             setFee(swapFee);
           }
 
           swapResult = fromBn(getWangRate(value ? value : "0").add(swapFee), 18);
         } else {
           if (value) {
-            swapFee = toBn(value, 18).mul(toBn("10", 18)).div(toBn("100", 18));
+            swapFee = toBn(value, 18).mul(toBn("1", 18)).div(toBn("100", 18));
             setFee(swapFee);
           }
 
