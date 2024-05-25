@@ -14,12 +14,11 @@ import { useForm } from "react-hook-form";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AiOutlineArrowRight } from "react-icons/ai";
-// import { FormInput, FormSelect } from "components/FormUtils";
-// import { ButtonConnectWrapper } from "components/Button";
-// import { getFLDRate, getUsdtRate, prettyBn, shortenAddress } from "utils";
+import { FormInput, FormSelect } from "components/form/form-utils";
+import { ButtonConnectWrapper } from "components/button";
+import { getWangRate, getUsdtRate, prettyBn, shortenAddress } from "utils";
 import {
   USDT_CONTRACT,
-  WANGNETWORK_CONTRACT,
   WANGTOKEN_CONTRACT,
 } from "constant/address";
 import { BigNumber } from "ethers";
@@ -28,11 +27,8 @@ import { CURRENT_CHAIN_ID, useAsyncCall } from "hooks";
 
 import _ from "lodash";
 import { CopiableText } from "components/CopiableText";
-// import useAccountBalance from "hooks/useAccountBalance";
-// import { useSwap } from "hooks/useSwap";
-import { ButtonConnectWrapper } from "components/button";
-import { FormInput, FormSelect } from "./form-utils";
-import { shortenAddress } from "utils";
+import {useAccountBalance} from "hooks/useAccountBalance";
+import { useSwap } from "hooks/useSwap";
 
 interface ISwapToken {
   amountTop: string;
@@ -45,7 +41,7 @@ interface IFieldCurrency {
 }
 
 export const FormSwap = () => {
-  const addressFLD = WANGTOKEN_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
+  const addressWang = WANGTOKEN_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
   const addressUsdt = USDT_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
   const { t } = useTranslation();
   const [symbol, setSymbol] = useState(false);
@@ -55,110 +51,110 @@ export const FormSwap = () => {
   const watchCurrency = watch("currency");
   const watchAmountTop = watch("amountTop");
 
-  // const { balanceFLD, balanceUSDT } = useAccountBalance();
+  const { balanceWang, balanceUSDT } = useAccountBalance();
 
-  // const swap = useSwap();
+  const swap = useSwap();
 
-  // const { exec, isLoading: isSwapLoading } = useAsyncCall(
-  //   swap.swapFLD,
-  //   t("form.message.swapSucces")
-  // );
+  const { exec, isLoading: isSwapLoading } = useAsyncCall(
+    swap.swapWang,
+    t("form.message.swapSucces")
+  );
 
-  // const { exec: execUSDT, isLoading: isSwapLoadingUSDT } = useAsyncCall(
-  //   swap.swapUSDT,
-  //   t("form.message.swapSucces")
-  // );
+  const { exec: execUSDT, isLoading: isSwapLoadingUSDT } = useAsyncCall(
+    swap.swapUSDT,
+    t("form.message.swapSucces")
+  );
 
-  // const inputMax = () => {
-  //   const { currency } = getValues();
-  //   let result;
+  const inputMax = () => {
+    const { currency } = getValues();
+    let result;
 
-  //   if (currency === "FLD") {
-  //     if (!balanceUSDT?.value) return setValue("amountTop", "0");
+    if (currency === "WANG") {
+      if (!balanceUSDT?.value) return setValue("amountTop", "0");
 
-  //     result = balanceUSDT.value;
-  //   } else {
-  //     if (!balanceFLD?.value || balanceFLD?.value.isZero())
-  //       return setValue("amountTop", "0");
+      result = balanceUSDT.value;
+    } else {
+      if (!balanceWang?.value || balanceWang?.value.isZero())
+        return setValue("amountTop", "0");
 
-  //     result = balanceFLD.value.mul(toBn("9", 18)).div(toBn("10", 18));
-  //   }
+      result = balanceWang.value.mul(toBn("9", 18)).div(toBn("10", 18));
+    }
 
-  //   setValue("amountTop", fromBn(result, 18));
-  //   handleChangeInput("amountTop");
-  // };
+    setValue("amountTop", fromBn(result, 18));
+    handleChangeInput("amountTop");
+  };
 
-  // useEffect(() => {
-  //   const currency = watchCurrency;
-  //   if (currency === "FLD") setSymbol(true);
-  //   else setSymbol(false);
+  useEffect(() => {
+    const currency = watchCurrency;
+    if (currency === "WANG") setSymbol(true);
+    else setSymbol(false);
 
-  //   // should reset amountTop and amountBottom
-  //   // after change the currency
-  //   resetField("amountTop");
-  //   resetField("amountBottom");
-  //   setFee(toBn("0", 18));
-  // }, [watchCurrency]);
+    // should reset amountTop and amountBottom
+    // after change the currency
+    resetField("amountTop");
+    resetField("amountBottom");
+    setFee(toBn("0", 18));
+  }, [watchCurrency]);
 
-  // const handleChangeInput = useCallback(
-  //   _.debounce((field: string) => {
-  //     const { amountTop, amountBottom, currency } = getValues();
-  //     const value = field === "amountTop" ? amountTop : amountBottom;
+  const handleChangeInput = useCallback(
+    _.debounce((field: string) => {
+      const { amountTop, amountBottom, currency } = getValues();
+      const value = field === "amountTop" ? amountTop : amountBottom;
 
-  //     // define what the top and bottom fields are
-  //     const fieldTarget = field === "amountTop" ? "amountBottom" : "amountTop";
+      // define what the top and bottom fields are
+      const fieldTarget = field === "amountTop" ? "amountBottom" : "amountTop";
 
-  //     let swapResult = "";
+      let swapResult = "";
 
-  //     if (!value) {
-  //       setFee(toBn("0", 18));
-  //     }
+      if (!value) {
+        setFee(toBn("0", 18));
+      }
 
-  //     let swapFee = toBn("0", 18);
+      let swapFee = toBn("0", 18);
 
-  //     if (currency === "FLD") {
-  //       swapResult = fromBn(getUsdtRate(value ? value : "0"), 18);
-  //     }
-  //     if (currency === "USDT") {
-  //       if (fieldTarget === "amountTop") {
-  //         if (value) {
-  //           swapFee = toBn(value, 18).mul(toBn("10", 18)).div(toBn("90", 18));
-  //           setFee(swapFee);
-  //         }
+      if (currency === "WANG") {
+        swapResult = fromBn(getUsdtRate(value ? value : "0"), 18);
+      }
+      if (currency === "USDT") {
+        if (fieldTarget === "amountTop") {
+          if (value) {
+            swapFee = toBn(value, 18).mul(toBn("10", 18)).div(toBn("90", 18));
+            setFee(swapFee);
+          }
 
-  //         swapResult = fromBn(getFLDRate(value ? value : "0").add(swapFee), 18);
-  //       } else {
-  //         if (value) {
-  //           swapFee = toBn(value, 18).mul(toBn("10", 18)).div(toBn("100", 18));
-  //           setFee(swapFee);
-  //         }
+          swapResult = fromBn(getWangRate(value ? value : "0").add(swapFee), 18);
+        } else {
+          if (value) {
+            swapFee = toBn(value, 18).mul(toBn("10", 18)).div(toBn("100", 18));
+            setFee(swapFee);
+          }
 
-  //         swapResult = fromBn(getFLDRate(value ? value : "0").sub(swapFee), 18);
-  //       }
-  //     }
+          swapResult = fromBn(getWangRate(value ? value : "0").sub(swapFee), 18);
+        }
+      }
 
-  //     setValue(fieldTarget, swapResult);
-  //   }, 200),
-  //   []
-  // );
+      setValue(fieldTarget, swapResult);
+    }, 200),
+    []
+  );
 
-  // const isDisableButtonSwap = useMemo(() => {
-  //   const { amountTop } = getValues();
+  const isDisableButtonSwap = useMemo(() => {
+    const { amountTop } = getValues();
 
-  //   if (!amountTop) return false;
+    if (!amountTop) return false;
 
-  //   return toBn(amountTop, 18) <= toBn("0", 18);
-  // }, [watchAmountTop]);
+    return toBn(amountTop, 18) <= toBn("0", 18);
+  }, [watchAmountTop]);
 
-  // const onSubmit = handleSubmit(async (data) => {
-  //   const { amountTop } = getValues();
+  const onSubmit = handleSubmit(async (data) => {
+    const { amountTop } = getValues();
 
-  //   if (data.currency === "FLD") {
-  //     exec(toBn(amountTop, 18));
-  //   } else {
-  //     execUSDT(toBn(amountTop, 18));
-  //   }
-  // });
+    if (data.currency === "WANG") {
+      exec(toBn(amountTop, 18));
+    } else {
+      execUSDT(toBn(amountTop, 18));
+    }
+  });
 
   return (
     <SimpleGrid
@@ -168,7 +164,7 @@ export const FormSwap = () => {
     >
       <Stack
         as="form"
-        // onSubmit={onSubmit}
+        onSubmit={onSubmit}
         align="center"
         order={{ base: 2, md: 1 }}
       >
@@ -210,11 +206,11 @@ export const FormSwap = () => {
                   bg: "whiteAlpha.300",
                 }}
                 control={control}
-                // onKeyUp={() => handleChangeInput("amountTop")}
+                onKeyUp={() => handleChangeInput("amountTop")}
                 name="amountTop"
                 placeholder={"0.0"}
                 type="number"
-                // isDisabled={isSwapLoading || isSwapLoadingUSDT}
+                isDisabled={isSwapLoading || isSwapLoadingUSDT}
               />
             </Box>
             <Button
@@ -223,7 +219,7 @@ export const FormSwap = () => {
               _hover={{
                 opacity: 0.6,
               }}
-              // onClick={inputMax}
+              onClick={inputMax}
             >
               {t("common.max")}
             </Button>
@@ -271,7 +267,7 @@ export const FormSwap = () => {
                   { value: "USDT", label: "USDT" },
                   { value: "WANG", label: "WANG" },
                 ]}
-                // isDisabled={isSwapLoading || isSwapLoadingUSDT}
+                isDisabled={isSwapLoading || isSwapLoadingUSDT}
                 defaultValue="USDT"
               />
             </SimpleGrid>
@@ -313,11 +309,11 @@ export const FormSwap = () => {
                   bg: "whiteAlpha.300",
                 }}
                 control={control}
-                // onKeyUp={() => handleChangeInput("amountBottom")}
+                onKeyUp={() => handleChangeInput("amountBottom")}
                 name="amountBottom"
                 placeholder={"0.0"}
                 type="number"
-                // isDisabled={isSwapLoading || isSwapLoadingUSDT}
+                isDisabled={isSwapLoading || isSwapLoadingUSDT}
               />
             </Box>
           </Stack>
@@ -325,16 +321,14 @@ export const FormSwap = () => {
             <Button
               type="submit"
               w="100%"
-              // isLoading={isSwapLoading || isSwapLoadingUSDT}
+              isLoading={isSwapLoading || isSwapLoadingUSDT}
               bgGradient="linear-gradient(92deg, #1D76CD 4.65%, #06C196 96.4%)"
               _hover={{
                 bg: "linear-gradient(92deg, #135186 4.65%, #0B4649 96.4%)",
               }}
-              // isDisabled={isDisableButtonSwap}
-              isDisabled
+              isDisabled={isDisableButtonSwap}
             >
-              {/* {t("common.swap")} */}
-              coming soon
+             {t("common.swap")}
             </Button>
           </ButtonConnectWrapper>
         </Stack>
@@ -384,9 +378,9 @@ export const FormSwap = () => {
                 color={"whiteAlpha.700"}
                 textAlign={"center"}
               >
-                {/* {Number(fromBn(balanceFLD?.value ?? toBn("0", 18), 18)) < 1
-                  ? fromBn(balanceFLD?.value ?? toBn("0", 18), 18)
-                  : prettyBn(balanceFLD?.value, 18)}{" "} */}
+                {Number(fromBn(balanceWang?.value ?? toBn("0", 18), 18)) < 1
+                  ? fromBn(balanceWang?.value ?? toBn("0", 18), 18)
+                  : prettyBn(balanceWang?.value, 18)}{" "}
                 WANG
               </Text>
             </Stack>
@@ -400,12 +394,12 @@ export const FormSwap = () => {
               <Text fontSize="sm">Import WANG</Text>
               <Box display="flex" alignItems="center">
                 <CopiableText
-                  value={addressFLD}
+                  value={addressWang}
                   display="flex"
                   alignItems="center"
                   gap="2"
                 >
-                  {shortenAddress(addressFLD)}
+                  {shortenAddress(addressWang)}
                   <IoCopyOutline />
                 </CopiableText>
               </Box>
@@ -439,9 +433,9 @@ export const FormSwap = () => {
                 color={"whiteAlpha.700"}
                 textAlign={"center"}
               >
-                {/* {Number(fromBn(balanceUSDT?.value ?? toBn("0", 18), 18)) < 1
+                {Number(fromBn(balanceUSDT?.value ?? toBn("0", 18), 18)) < 1
                   ? fromBn(balanceUSDT?.value ?? toBn("0", 18), 18)
-                  : prettyBn(balanceUSDT?.value, 18)}{" "} */}
+                  : prettyBn(balanceUSDT?.value, 18)}{" "}
                 USDT
               </Text>
             </Stack>
