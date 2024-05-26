@@ -7,6 +7,7 @@ import { useSwapContract } from "./useSwapContract";
 import { useAccountBalance } from "./useAccountBalance";
 import ee from "ee";
 import { useEffect } from "react";
+import { fromBn } from "evm-bn";
 
 export const useSwap = () => {
   const {
@@ -55,7 +56,7 @@ export const useSwap = () => {
     if (allowance.value > amount) return;
     const tx = await usdt.erc20.setAllowance(
       SWAP_CONTRACT[CURRENT_CHAIN_ID as "0x38"],
-      Number(amount) * 5
+      fromBn(amount.mul(10), 18)
     );
     return tx.receipt;
   };
@@ -68,7 +69,7 @@ export const useSwap = () => {
     if (allowance.value > amount) return;
     const tx = await Wang.erc20.setAllowance(
       SWAP_CONTRACT[CURRENT_CHAIN_ID as "0x38"],
-      amount.mul(5).toString()
+      fromBn(amount.mul(10), 18)
     );
     return tx.receipt;
   };
