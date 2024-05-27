@@ -1,5 +1,5 @@
 import { useNftOwned } from "hooks";
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { CardOwnedNFT } from "components/card";
 import {
@@ -16,7 +16,6 @@ import { useConnectionStatus } from "@thirdweb-dev/react";
 export const SectionOwnedNFT = () => {
   const { t } = useTranslation();
   const { data, isLoading } = useNftOwned();
-  const statusConnect = useConnectionStatus();
 
   return (
     <Box mt="40" pos="relative">
@@ -41,29 +40,11 @@ export const SectionOwnedNFT = () => {
             backdropBlur="2.5px"
             spacing="30px"
           >
-            {statusConnect === "connected" ? (
-              isLoading ? (
-                <Box display="flex" justifyContent="center" minH="55vh">
-                  <Spinner size="xl" />
-                </Box>
-              ) : data?.length === 0 ? (
-                <Box
-                  textAlign="center"
-                  display="flex"
-                  alignItems="center"
-                  my="10"
-                  minH="55vh"
-                >
-                  <Heading>{t("error.notOwnedNft")}</Heading>
-                </Box>
-              ) : (
-                data?.map((item: any) => (
-                  <WrapItem key={item.metadata.id}>
-                    <CardOwnedNFT id={item.metadata.id} />
-                  </WrapItem>
-                ))
-              )
-            ) : (
+            {isLoading ? (
+              <Box display="flex" justifyContent="center" minH="55vh">
+                <Spinner size="xl" />
+              </Box>
+            ) : data?.length === 0 ? (
               <Box
                 textAlign="center"
                 display="flex"
@@ -71,8 +52,14 @@ export const SectionOwnedNFT = () => {
                 my="10"
                 minH="55vh"
               >
-                <Heading>Please connect wallet</Heading>
+                <Heading>{t("error.notOwnedNft")}</Heading>
               </Box>
+            ) : (
+              data?.map((item) => (
+                <WrapItem key={Number(item.id)}>
+                  <CardOwnedNFT {...item} />
+                </WrapItem>
+              ))
             )}
           </Wrap>
         </Stack>

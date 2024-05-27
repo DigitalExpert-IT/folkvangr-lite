@@ -15,7 +15,9 @@ export const useAccountBalance = () => {
     refetch: refetchWang,
   } = useBalance(WANGTOKEN_CONTRACT[CURRENT_CHAIN_ID as "0x38"]);
 
-  console.log({ balanceWang, balanceUSDT, isInitialLoading, isLoadingUSDT });
-
-  return { balanceWang, balanceUSDT, isLoading: isLoadingWang || isLoadingUSDT };
+  return {
+    balanceWang,
+    balanceUSDT,
+    isLoading: isLoadingWang || isLoadingUSDT,
+  };
 };

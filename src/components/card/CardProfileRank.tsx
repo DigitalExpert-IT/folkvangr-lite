@@ -1,12 +1,9 @@
 import React from "react";
-// import { RANK_LEVEL } from "constant/rankLevel";
-// import { useAccountMap } from "hooks/valhalla";
+import { fromBn } from "evm-bn";
+import { useNFTWangContract } from "hooks";
 import { CardProfile } from "./CardProfile";
 import { Heading, Stack, Spinner } from "@chakra-ui/react";
 import { useAddress, useContractRead } from "@thirdweb-dev/react";
-// import { useNFTFolkContract } from "hooks/useNFTFolkContract";
-import { fromBn } from "evm-bn";
-import { useAccountMap, useNFTWangContract } from "hooks";
 
 export const CardProfileRank = () => {
   const nft = useNFTWangContract();
@@ -20,7 +17,7 @@ export const CardProfileRank = () => {
   const getRank = () => {
     if (!totalInvest || totalInvest.length === 0) return 0;
 
-    const investAmount = Number(99);
+    const investAmount = Number(fromBn(totalInvest, 18));
     if (isNaN(investAmount)) return 0;
 
     const rankings = [
