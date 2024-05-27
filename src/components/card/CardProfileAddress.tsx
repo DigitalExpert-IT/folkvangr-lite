@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { CardProfile } from "./CardProfile";
 import { IoCopyOutline } from "react-icons/io5";
 import { useAddress } from "@thirdweb-dev/react";
-import { WANGNETWORK_CONTRACT, WANGTOKEN_CONTRACT } from "constant/address";
+import { WANGTOKEN_CONTRACT } from "constant/address";
 import { CopiableText } from "components/CopiableText";
 import { CURRENT_CHAIN_ID, useAccountMap } from "hooks";
 import { WidgetProfileBalance } from "components/widget";

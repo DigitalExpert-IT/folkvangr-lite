@@ -11,28 +11,38 @@ import { useAccountMap, useNFTWangContract } from "hooks";
 export const CardProfileRank = () => {
   const nft = useNFTWangContract();
   const address = useAddress();
-  const { data, isLoading } = useAccountMap();
-  const { data: personalBuy } = useContractRead(nft.contract, "balanceOf", [
-    address,
-  ]);
+  const { data: totalInvest, isLoading } = useContractRead(
+    nft.contract,
+    "getTotalInvest",
+    [address]
+  );
 
-  // const getRank = () => {
-  //   if (data === undefined || personalBuy === undefined) return 0;
-  //   if (data?.isLeader === true) return 12;
-  //   return (
-  //     RANK_LEVEL.find((rank, idx) => {
-  //       if (idx + 1 === RANK_LEVEL.length) return RANK_LEVEL[idx];
-  //       return (
-  //         (Number(fromBn(data.omzet, 18)) >= rank.omzet &&
-  //           Number(fromBn(data.omzet, 18)) < RANK_LEVEL[idx + 1].omzet) ||
-  //         (Number(fromBn(personalBuy, 18)) >= rank.personalBuy &&
-  //           Number(fromBn(personalBuy, 18)) < RANK_LEVEL[idx + 1].personalBuy)
-  //       );
-  //     })?.level ?? 0
-  //   );
-  // };
+  const getRank = () => {
+    if (!totalInvest || totalInvest.length === 0) return 0;
 
-  // if (isLoading) return <Spinner />;
+    const investAmount = Number(99);
+    if (isNaN(investAmount)) return 0;
+
+    const rankings = [
+      { threshold: 10000, rank: "Priority" },
+      { threshold: 5000, rank: "Solid Gold" },
+      { threshold: 1000, rank: "Gold" },
+      { threshold: 500, rank: "Silver" },
+      { threshold: 300, rank: "Bronze" },
+      { threshold: 100, rank: "Classic" },
+      { threshold: 0, rank: "-" },
+    ];
+
+    for (const { threshold, rank } of rankings) {
+      if (investAmount >= threshold) {
+        return rank;
+      }
+    }
+
+    return "-";
+  };
+
+  if (isLoading) return <Spinner />;
 
   return (
     <CardProfile
@@ -46,13 +56,13 @@ export const CardProfileRank = () => {
         placeItems={"center"}
         spacing={{ base: "none", md: 5 }}
       >
-        <Heading>Rank</Heading>
+        <Heading>NFT Investment</Heading>
         <Heading
-          fontSize="8xl"
+          fontSize="5xl"
           mt={"4"}
           textAlign={{ base: "start", lg: "center" }}
         >
-          classic
+          {getRank()}
         </Heading>
       </Stack>
     </CardProfile>

@@ -73,7 +73,7 @@ export const CardProfileBonus = () => {
               <Text>{t("common.sponsor")}</Text>
               <Text>{`${
                 sponsorReward.data && fromBn(sponsorReward.data, 18)
-              } USDT`}</Text>
+              } WANG`}</Text>
             </Stack>
             <WidgetProfileBtn
               onClick={handleClaimSponsorReward}

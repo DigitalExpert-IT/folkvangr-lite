@@ -45,7 +45,7 @@ export const CardOwnedNFT: React.FC<CardOwnedNFTProps> = (props) => {
         borderRadius="xl"
       >
         {isLoading ? (
-          <Box display="flex" justifyContent="center" minH="55vh" w="100%">
+          <Box display="flex" justifyContent="center" minH="55vh" w="20vw">
             <Spinner size="sm" />
           </Box>
         ) : (

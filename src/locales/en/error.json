@@ -7,7 +7,7 @@
   "errorCode": {
     "ACTION_REJECTED": "User Reject Transaction!",
     "NotEnoughBalance": "Not Enough Balance",
-    "NotEnoughFldBalance": "Not Enough FLD Balances",
+    "NotEnoughWangBalance": "Not Enough WANG Balances",
     "NotEnoughPool": "Not Enough Pool",
     "NotEnoughUsdtBalance": "Not Enough USDT Balances",
     "TokenFrozen": "Token Frozen",

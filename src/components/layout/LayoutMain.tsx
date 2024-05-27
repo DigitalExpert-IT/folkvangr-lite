@@ -13,7 +13,7 @@ export const LayoutMain: React.FC<MainProps> = ({ children }) => {
       <Metadata
         language="en"
         author="WANGCAPITAL"
-        description="Wangcapital aims to revolutionize the world of network marketing by decentralizing millions of users through web3 applications"
+        description="WANG CAPITAL, Hongkong Web3 Investment Corporation - Decentralized Autonomous Organization (DAO)"
       />
       <Navbar />
       {children}

@@ -1,6 +1,14 @@
 import { Box, Heading, Stack, Text, Button, Image } from "@chakra-ui/react";
+import { USDT_CONTRACT, WANGTOKEN_CONTRACT } from "constant/address";
 import { CARD_IMAGE_MAP } from "constant/image";
-import { useNftList, useAsyncCall } from "hooks";
+import {
+  useNftList,
+  useAsyncCall,
+  useUSDTContract,
+  CURRENT_CHAIN_ID,
+} from "hooks";
+import { useWangTokenContract } from "hooks/useWangTokenContract";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 interface CardListNFTProps {
@@ -9,6 +17,8 @@ interface CardListNFTProps {
   id: number;
 }
 
+const usdt = USDT_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
+const wang = WANGTOKEN_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
 export const CardListNFT: React.FC<CardListNFTProps> = (props) => {
   const { t } = useTranslation();
   const { buy } = useNftList();
@@ -16,7 +26,11 @@ export const CardListNFT: React.FC<CardListNFTProps> = (props) => {
   const { exec, isLoading } = useAsyncCall(buy, t("common.succesBuyNft"));
 
   const handleBuyUsdt = () => {
-    exec(props.id);
+    exec(usdt, props.id);
+  };
+
+  const handleBuyWang = () => {
+    exec(wang, props.id);
   };
 
   return (
@@ -58,9 +72,8 @@ export const CardListNFT: React.FC<CardListNFTProps> = (props) => {
                   rounded="lg"
                   background="#0B5454"
                   _hover={{ background: "#073c3c" }}
-                  // onClick={() => handleBuyFLD()}
-                  // isLoading={fldLoading}
-                  isDisabled
+                  onClick={() => handleBuyWang()}
+                  isLoading={isLoading}
                 >
                   Buy with {props.price} WANG
                 </Button>

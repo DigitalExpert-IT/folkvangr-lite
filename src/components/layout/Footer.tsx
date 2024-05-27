@@ -1,18 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {
-  Container,
-  Box,
-  Text,
-  Flex,
-  HStack,
-  Icon,
-  AspectRatio,
-  Heading,
-} from "@chakra-ui/react";
+import { Container, Box, Text, Flex, AspectRatio } from "@chakra-ui/react";
 import Image from "next/image";
-import { ICONS_FOOTER } from "constant/icon";
-import Link from "next/link";
 import pattern from "../../../public/assets/dashboard/bg-billboard.png";
 
 export const Footer = () => {

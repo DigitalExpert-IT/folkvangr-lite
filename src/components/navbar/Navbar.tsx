@@ -66,15 +66,15 @@ export const Navbar = () => {
             <Link href="/">
               <AspectRatio
                 w={{ base: 200, lg: 250 }}
-                ratio={16 / 5}
+                ratio={40 / 5}
                 mx={{ sm: "auto" }}
                 pos={{ base: "absolute", lg: "sticky" }}
                 right={"0"}
                 left={"0"}
-                top={"-2.5"}
+                top={"2"}
               >
                 <Image
-                  src="/assets/logo/wang-logo.png"
+                  src="/assets/logo/wang-new.png"
                   alt="logo-image"
                   width={500}
                   loading="lazy"
