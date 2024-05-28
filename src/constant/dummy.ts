@@ -97,28 +97,28 @@ export const RANKNETWORK: Array<IRankNetwork> = [
 
 export const PROMOTION_IMAGE_DATA = [
   {
-    uri: "https://ik.imagekit.io/msxxxaegj/folkvangr/feature1.png?updatedAt=1695276346436",
+    uri: "/assets/feature-1-new.png",
     title: t("pages.home.sectionFeature.fullTransparency.title"),
     subtitle: t("pages.home.sectionFeature.fullTransparency.subtitle"),
     bgColor: "#0B5454",
     imgCenter: false,
   },
   {
-    uri: "https://ik.imagekit.io/msxxxaegj/folkvangr/feature2.png?updatedAt=1695276346397",
+    uri: "/assets/feature-2-new.png",
     title: t("pages.home.sectionFeature.fullAutomation.title"),
     subtitle: t("pages.home.sectionFeature.fullAutomation.subtitle"),
     bgColor: "#005AB8",
     imgCenter: false,
   },
   {
-    uri: "https://ik.imagekit.io/msxxxaegj/folkvangr/feature3.png?updatedAt=1695276346467",
+    uri: "/assets/feature-3-new.png",
     title: t("pages.home.sectionFeature.smartContract.title"),
     subtitle: t("pages.home.sectionFeature.smartContract.subtitle"),
     bgColor: "#18072F",
     imgCenter: true,
   },
   {
-    uri: "https://ik.imagekit.io/msxxxaegj/folkvangr/feature4.png?updatedAt=1695276346424",
+    uri: "/assets/feature-4-new.png",
     title: t("pages.home.sectionFeature.decentralized.title"),
     subtitle: t("pages.home.sectionFeature.decentralized.subtitle"),
     bgColor: "#AA59FB",
@@ -129,17 +129,14 @@ export const PROMOTION_IMAGE_DATA = [
 export const PARTNERSHIP = [
   {
     name: "partner1",
-    image:
-      "https://ik.imagekit.io/msxxxaegj/folkvangr/binance-logo.png?updatedAt=1695370706279",
+    image: "/assets/partnership/bnb-part.png",
   },
   {
     name: "partner2",
-    image:
-      "https://ik.imagekit.io/msxxxaegj/folkvangr/solidproofV2.png?updatedAt=1695015631926",
+    image: "/assets/partnership/solid-proof.png",
   },
   {
     name: "partner3",
-    image:
-      "https://ik.imagekit.io/msxxxaegj/wangcapital/Lettermark%20White.png?updatedAt=1716354827007",
+    image: "/assets/logo/wang-white.png",
   },
 ];

@@ -57,7 +57,7 @@ export const Footer = () => {
                   sizes="(max-width: 768px) 100vw,"
                   fill
                   loading="lazy"
-                  src={"/assets/logo/wang-logo.png"}
+                  src={"/assets/logo/wang-new.png"}
                   alt="logo-image"
                   priority={false}
                 />

@@ -21,7 +21,7 @@ export const SectionCommunity = () => {
         w="full"
       >
         <Image
-          src="https://ik.imagekit.io/msxxxaegj/folkvangr/folkMatchingBonus.png?updatedAt=1695193793067"
+          src="/assets/community-map-new.png"
           alt="matching-bonus"
           loading="lazy"
           style={{

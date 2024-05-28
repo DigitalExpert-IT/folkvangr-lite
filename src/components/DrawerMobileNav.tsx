@@ -49,7 +49,7 @@ export const DrawerMobileNav: React.FC<MobileDrawerProps> = (props) => {
         <DrawerHeader justifyContent="center" display="flex">
           <AspectRatio ratio={10 / 3} minWidth="190">
             <Image
-              src={"/assets/logo/wang-logo.png"}
+              src={"/assets/logo/wang-new.png"}
               alt="logo-image"
               style={{
                 objectFit: "cover",
@@ -135,7 +135,7 @@ export const DrawerMobileNav: React.FC<MobileDrawerProps> = (props) => {
             <AspectRatio ratio={1} minWidth="190">
               <Image
                 alt="wangcapital"
-                src="https://ik.imagekit.io/msxxxaegj/wangcapital/partner%20img.png?updatedAt=1716493467896"
+                src="/assets/logo/wang-white.png"
                 style={{
                   objectFit: "contain",
                   opacity: 0.1,
