@@ -32,14 +32,10 @@ export const CardOwnedNFT = ({
   const nft = useNFTWangContract();
   const claim = useContractWrite(nft.contract, "grind");
   const claimAsync = useAsyncCall(claim.mutateAsync);
-  const { claimReward } = useNftOwned();
   const intervalRef = useRef<NodeJS.Timer>();
   const farmTextRef = useRef<HTMLParagraphElement>(null);
   const lastFarmedAtRef = useRef<BigNumber>(lastClaimAt);
-  const { exec, isLoading: claimLoading } = useAsyncCall(
-    claimReward,
-    t("form.message.claimSuccess")
-  );
+
   const handleClaim = async () => {
     const claiming = await claimAsync.exec({ args: [id] });
     const isSuccesClaim = claiming.receipt?.status === 1;
@@ -55,7 +51,7 @@ export const CardOwnedNFT = ({
     intervalRef.current = setInterval(() => {
       if (!farmTextRef.current) return;
 
-      const farmPerDay = rewardPerday.mul(pecentage).div(1000);
+      const farmPerDay = price.mul(pecentage).div(10000);
       const farmPerSec = farmPerDay.div(86400);
       const secDiff = differenceInSeconds(
         new Date(),
