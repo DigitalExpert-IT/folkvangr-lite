@@ -4,8 +4,9 @@ import {
   useAccountMap,
   useAsyncCall,
   useNFTWangContract,
+  useWangNetContract,
 } from "hooks";
-import { HStack, Stack, Text } from "@chakra-ui/react";
+import { HStack, Skeleton, Stack, Text } from "@chakra-ui/react";
 import {
   useContractRead,
   useBalance,
@@ -18,8 +19,15 @@ import { fromBn } from "evm-bn";
 
 export const CardProfileBonus = () => {
   const nft = useNFTWangContract();
+  const wangNet = useWangNetContract();
   const address = useAddress();
-  const { data } = useAccountMap();
+
+  const { data: affiliate, isLoading: isLoad } = useContractRead(
+    wangNet.contract,
+    "getTotalDownlineUpToTenLevel",
+    [address]
+  );
+
   const wang = useBalance(WANGTOKEN_CONTRACT[CURRENT_CHAIN_ID as "0x38"]);
   const personalBuy = useContractRead(nft.contract, "getTotalInvest", [
     address,
@@ -64,7 +72,9 @@ export const CardProfileBonus = () => {
         <WidgetProfileBalance bg="#0B5454" px="1rem" rounded="xl">
           <HStack w={"full"} justifyContent={"space-between"}>
             <Text>{t("common.TotalNetworkMember")}</Text>
-            <Text textAlign={"end"}>{`${data?.downline ?? "0"} Member`}</Text>
+            <Skeleton isLoaded={!isLoad}>
+              <Text textAlign={"end"}>{`${affiliate ?? "0"} Member`}</Text>
+            </Skeleton>
           </HStack>
         </WidgetProfileBalance>
         <WidgetProfileBalance bg="#0B5454" px="1rem" rounded="xl">
