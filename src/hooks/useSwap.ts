@@ -48,12 +48,12 @@ export const useSwap = () => {
     const allowance = await usdt.erc20.allowance(
       SWAP_CONTRACT[CURRENT_CHAIN_ID as "0x38"]
     );
-    if (balanceUSDT.value < amount) {
+    if (balanceUSDT.value.lt(amount)) {
       throw {
         code: "NotEnoughBalance",
       };
     }
-    if (allowance.value > amount) return;
+    if (allowance.value.gt(amount)) return;
     const tx = await usdt.erc20.setAllowance(
       SWAP_CONTRACT[CURRENT_CHAIN_ID as "0x38"],
       fromBn(amount.mul(10), 18)
@@ -66,7 +66,12 @@ export const useSwap = () => {
     const allowance = await Wang.erc20.allowance(
       SWAP_CONTRACT[CURRENT_CHAIN_ID as "0x38"]
     );
-    if (allowance.value > amount) return;
+    if (balanceWang.value.lt(amount)) {
+      throw {
+        code: "NotEnoughBalance",
+      };
+    }
+    if (allowance.value.gt(amount)) return;
     const tx = await Wang.erc20.setAllowance(
       SWAP_CONTRACT[CURRENT_CHAIN_ID as "0x38"],
       fromBn(amount.mul(10), 18)
